@@ -3,6 +3,9 @@
 // The design system (fonts, palette, nav, footer) lives here once —
 // individual pages only supply a title and their own content.
 import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logoNavy from '../assets/logo/logo-horizontal-navy.png';
+import logoWhite from '../assets/logo/logo-horizontal-white.png';
 
 interface Props {
   title: string;
@@ -47,7 +50,9 @@ const prefix = lang === 'fr' ? '/fr' : '';
   <body>
     <nav class="nav">
       <div class="nav-in">
-        <a href={prefix || '/'} class="logo">Higher<span>·</span>Ground</a>
+        <a href={prefix || '/'} class="logo">
+          <Image src={logoNavy} alt="Higher Ground" class="logo-img" width={170} />
+        </a>
         <div class="nav-links">
           <a href={`${prefix}/performance-lab`}>{t.performanceLab}</a>
           <a href={`${prefix}/leadership`}>{t.leadership}</a>
@@ -56,6 +61,17 @@ const prefix = lang === 'fr' ? '/fr' : '';
           <a href={`${prefix}/about`}>{t.about}</a>
           <a href={`${prefix}/enquire`} class="nav-cta">{t.enquire}</a>
         </div>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-mobile" id="nav-mobile">
+        <a href={`${prefix}/performance-lab`}>{t.performanceLab}</a>
+        <a href={`${prefix}/leadership`}>{t.leadership}</a>
+        <a href={`${prefix}/agencies`}>{t.agencies}</a>
+        <a href={`${prefix}/journal`}>{t.journal}</a>
+        <a href={`${prefix}/about`}>{t.about}</a>
+        <a href={`${prefix}/enquire`} class="nav-cta">{t.enquire}</a>
       </div>
     </nav>
 
@@ -65,9 +81,29 @@ const prefix = lang === 'fr' ? '/fr' : '';
 
     <footer class="foot">
       <div class="wrap foot-in">
-        <span>© 2026 Higher Ground</span>
-        <span>{lang === 'fr' ? 'Barcelone' : 'Barcelona'}</span>
+        <Image src={logoWhite} alt="Higher Ground" class="foot-logo" width={140} />
+        <div class="foot-meta">
+          <span>© 2026 Higher Ground</span>
+          <span>{lang === 'fr' ? 'Barcelone' : 'Barcelona'}</span>
+        </div>
       </div>
     </footer>
+
+    <script>
+      const burger = document.getElementById('nav-burger');
+      const mobileMenu = document.getElementById('nav-mobile');
+      burger?.addEventListener('click', () => {
+        const isOpen = mobileMenu?.classList.toggle('open');
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      // Close the mobile menu automatically if the viewport grows back
+      // past the breakpoint (e.g. rotating a tablet to landscape).
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 860) {
+          mobileMenu?.classList.remove('open');
+          burger?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    </script>
   </body>
 </html>

@@ -2,12 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import heroRidge from '../assets/images/hero-ridge.jpg';
-import couloirSunset from '../assets/images/couloir-sunset.jpg';
 ---
 
 <BaseLayout
   title="Home"
-  description="Mountain and altitude readiness — for athletes and leaders. Higher Ground is the mountain coaching practice of Olivier Gil."
+  description="Higher Ground — Olivier Gil's mountain coaching practice, for athletes preparing serious altitude goals and companies building readiness into their leadership."
   lang="en"
 >
   <!-- HERO -->
@@ -18,14 +17,14 @@ import couloirSunset from '../assets/images/couloir-sunset.jpg';
     </div>
     <div class="wrap hero-in">
       <div class="eyebrow" style="color:var(--sky)">Mountain &amp; altitude readiness</div>
-      <h1>Know you're ready. <em>Not just fit.</em></h1>
+      <h1>Know you're ready. <em>Not just ambitious.</em></h1>
       <p class="hero-sub">
-        Higher Ground prepares athletes for serious mountain and altitude objectives —
-        human-led, structured, accountable. <strong>Readiness, judgment and human
-        commitment decide the outcome.</strong>
+        Higher Ground — <strong>Olivier Gil's</strong> mountain coaching practice, for
+        athletes preparing serious altitude goals and companies building readiness
+        into their leadership.
       </p>
       <div class="hero-cta">
-        <a href="#router" class="btn btn-primary">What are you preparing for? ↓</a>
+        <a href="#pillars" class="btn btn-primary">What are you preparing for? ↓</a>
         <a href="/enquire" class="btn btn-ghost">Book a readiness call</a>
       </div>
       <p class="hero-quiet">
@@ -34,98 +33,119 @@ import couloirSunset from '../assets/images/couloir-sunset.jpg';
     </div>
   </header>
 
-  <!-- PROOF / METHOD -->
-  <section class="proof">
-    <div class="wrap proof-grid">
-      <div class="proof-text">
-        <div class="eyebrow">Why trained isn't ready</div>
-        <h2 class="serif">The mountain doesn't test your training. It tests your readiness.</h2>
-        <p>
-          Above 6,000 metres, the athletes who turn around are rarely the unfit ones.
-          They're the ones who arrived <strong>fit but unready</strong> — under-acclimatised
-          for their objective, inefficient at altitude, run down by weeks of poor sleep
-          or nutrition, or simply on the wrong mountain for where they actually were.
-        </p>
-        <p class="kicker">Fitness is one input. Readiness is the outcome.</p>
-        <a href="/performance-lab#method" class="btn-quiet">The Altitude Readiness System →</a>
-      </div>
-      <div class="proof-media">
-        <Image src={couloirSunset} alt="A climber ascending a steep snow couloir at sunset" class="proof-img" width={900} quality={75} />
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT WE DO -->
-  <section class="wwd">
-    <div class="wrap">
-      <div class="eyebrow">What we do</div>
-      <h2 class="serif">A mountain core. Two extensions.</h2>
-      <p class="wwd-lead">
-        The Performance Lab proves the method; the Readiness System delivers it.
-        Leadership and Solutions extend that same discipline outward.
+  <!-- THE PROBLEM, IN THE VISITOR'S OWN TERMS -->
+  <section class="problem">
+    <div class="narrow problem-in">
+      <div class="eyebrow">The gap nobody trains for</div>
+      <h2 class="serif">Ambition is not the same as readiness.</h2>
+      <p>
+        Most people preparing for something hard focus entirely on effort — more
+        training, more hours, more will. But on the objectives that actually
+        matter, the people who succeed aren't always the fittest or the most
+        driven. They're the ones who arrive <strong>genuinely ready</strong> —
+        for the specific demands of their mountain, or the specific pressure of
+        their moment at work.
       </p>
-      <div class="wwd-grid">
-        <div class="wwd-row">
-          <h3>Performance Lab</h3>
-          <p>Applied mountain performance for athletes whose objective leaves no margin for improvisation.</p>
-        </div>
-        <div class="wwd-row">
-          <h3>For expedition agencies</h3>
-          <p>Readiness built into the trips you sell — so your clients arrive genuinely prepared.</p>
-        </div>
-        <div class="wwd-row">
-          <h3>Leadership <span class="wwd-tag">extension</span></h3>
-          <p>The same discipline of preparing for high-consequence moments, brought to teams and leaders.</p>
-        </div>
-        <div class="wwd-row">
-          <h3>Solutions <span class="wwd-tag">extension</span></h3>
-          <p>Prescribed tools, protocols and partner products that make readiness tangible.</p>
-        </div>
-      </div>
+      <p class="kicker">Effort is one input. Readiness is the outcome.</p>
     </div>
   </section>
 
-  <!-- ROUTER -->
-  <section class="onward" id="router">
+  <!-- PILLARS — doubles as the router; Leadership given primary billing -->
+  <section class="pillars" id="pillars">
     <div class="wrap">
-      <div class="eyebrow">Where are you starting from?</div>
+      <div class="eyebrow">Where to start</div>
       <h2 class="serif">What are you preparing for?</h2>
-      <div class="on-grid">
-        <a class="on-card" href="/performance-lab">
-          <h4>A mountain objective</h4>
-          <p>From a first 6,000m peak to no-oxygen 8,000ers — find the door that fits your mountain.</p>
+
+      <a href="/leadership" class="pillar-feature">
+        <span class="pillar-tag">Leadership</span>
+        <h3>A team to strengthen</h3>
+        <p>
+          The same discipline that prepares athletes for the mountain, translated
+          for leaders and teams who face their own high-stakes moments. The
+          Ridgeline — a keynote built on it.
+        </p>
+        <span class="pillar-link">Discover Leadership →</span>
+      </a>
+
+      <div class="pillar-row">
+        <a href="/performance-lab" class="pillar-card">
+          <span class="pillar-tag">Performance Lab</span>
+          <h3>A mountain objective</h3>
+          <p>
+            Applied mountain performance for a limited number of athletes —
+            currently Simon Niklaus and Dina, preparing for genuinely serious
+            objectives. This isn't a program you apply to; it's proof the method
+            works.
+          </p>
+          <span class="pillar-link">See the work →</span>
         </a>
-        <a class="on-card" href="/agencies">
-          <h4>Clients to prepare</h4>
-          <p>You organise expeditions. Readiness built into the trips you sell.</p>
-        </a>
-        <a class="on-card" href="/leadership">
-          <h4>A team to strengthen</h4>
-          <p>You want your people ready when it counts — The Ridgeline keynote and beyond.</p>
+
+        <a href="/agencies" class="pillar-card pillar-quiet">
+          <span class="pillar-tag">Agencies</span>
+          <h3>Clients to prepare</h3>
+          <p>Run an expedition agency? Occasionally open to the right partnership.</p>
+          <span class="pillar-link">Get in touch →</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOUNDER -->
+  <!-- PROOF / REASSURANCE BAND -->
+  <section class="proofband">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--sky)">Why this, not just another coach or speaker</div>
+      <h2 class="serif" style="color:#fff">Fifteen years earning both sides of this.</h2>
+      <div class="proof-grid">
+        <div class="proof-item">
+          <h4>UESCA-Certified Coach</h4>
+          <p>Trained and certified in altitude and ultra-endurance coaching methodology.</p>
+        </div>
+        <div class="proof-item">
+          <h4>15+ Years, Executive</h4>
+          <p>Senior leadership in cybersecurity, alongside every year on the mountain.</p>
+        </div>
+        <div class="proof-item">
+          <h4>The Mountain Record</h4>
+          <p>Mont Blanc solo. Kyrgyzstan. The Vignemale. Ama Dablam, 2027.</p>
+        </div>
+        <div class="proof-item">
+          <h4>Manaslu, No O₂</h4>
+          <p>Simon Niklaus's flagship ascent — Higher Ground's proof of concept, live.</p>
+        </div>
+        <a href="/journal" class="proof-item proof-link">
+          <h4>The Ama Dablam Journal</h4>
+          <p>Building a team, documented from the first call. → Follow along</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER BRIDGE -->
   <section class="founder">
     <div class="wrap founder-in">
-      <div class="eyebrow" style="color:var(--sky)">Behind Higher Ground</div>
+      <div class="eyebrow">Behind Higher Ground</div>
       <h2 class="serif">Two demanding worlds. One discipline.</h2>
       <p>
-        Higher Ground is the mountain and altitude coaching practice of <strong>Olivier Gil</strong> — for over fifteen years both a senior executive and a serious alpinist. UESCA-certified coach. Ama Dablam ahead.
+        Every method here is tested first on Olivier's own preparation — on the
+        mountain, and in the boardroom — before it's ever offered to someone else.
       </p>
-      <a href="/about" class="btn-quiet" style="color:var(--sky-bright);border-color:rgba(167,205,236,.4)">More about Olivier →</a>
+      <a href="/about" class="btn-quiet">More about Olivier →</a>
     </div>
   </section>
 
-  <!-- ACT -->
+  <!-- CLOSING — TWO DOORS -->
   <section class="cta">
     <div class="cta-in">
       <div class="eyebrow" style="color:var(--sky)">Start with the verdict</div>
-      <h2 class="serif">Let's talk about your mountain.</h2>
-      <p>A simple, no-obligation conversation to understand your project and see whether Higher Ground is the right fit.</p>
-      <a href="/enquire" class="btn btn-primary">Book a readiness call</a>
+      <h2 class="serif">Let's talk about what you're preparing for.</h2>
+      <div class="cta-doors">
+        <a href="/enquire" class="btn btn-primary">Book a readiness call</a>
+        <a href="/leadership" class="btn btn-ghost">Enquire about The Ridgeline</a>
+      </div>
+      <div class="cta-labels">
+        <span>Mountain objectives</span>
+        <span>Teams &amp; leaders</span>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -138,9 +158,7 @@ import couloirSunset from '../assets/images/couloir-sunset.jpg';
     background: var(--navy-deep);
   }
   .hero-media { position: absolute; inset: 0; z-index: 1; }
-  .hero-media :global(.hero-img) {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-  }
+  .hero-media :global(.hero-img) { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero-scrim {
     position: absolute; inset: 0;
     background: linear-gradient(100deg, rgba(3,13,30,.90) 0%, rgba(3,13,30,.68) 46%, rgba(7,29,63,.40) 100%);
@@ -148,63 +166,72 @@ import couloirSunset from '../assets/images/couloir-sunset.jpg';
   .hero-in { position: relative; z-index: 2; padding: 96px 32px; width: 100%; }
   .hero h1 {
     font-family: 'IBM Plex Sans', sans-serif; font-weight: 600;
-    color: #fff; font-size: clamp(42px, 7vw, 80px);
-    line-height: 1.04; letter-spacing: -.02em; margin: 20px 0 26px; max-width: 14ch;
+    color: #fff; font-size: clamp(38px, 6.4vw, 72px);
+    line-height: 1.08; letter-spacing: -.02em; margin: 20px 0 26px; max-width: 15ch;
   }
   .hero h1 em { font-style: normal; color: var(--sky-bright); }
-  .hero-sub { font-size: clamp(17px, 2vw, 20px); color: #C8D6E5; font-weight: 300; max-width: 54ch; line-height: 1.6; }
+  .hero-sub { font-size: clamp(16px, 1.8vw, 19px); color: #C8D6E5; font-weight: 300; max-width: 52ch; line-height: 1.6; }
   .hero-cta { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
   .hero-quiet { margin-top: 22px; font-size: 14px; color: var(--steel-lt); }
 
-  /* PROOF */
-  .proof { padding: 92px 0; background: var(--paper); }
-  .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-  .proof-text h2 { font-size: clamp(27px, 3.8vw, 38px); color: var(--navy); line-height: 1.15; margin: 14px 0 20px; }
-  .proof-text p { font-size: 17px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; max-width: 52ch; }
+  /* PROBLEM */
+  .problem { padding: 96px 0; background: var(--paper); }
+  .problem-in { text-align: left; }
+  .problem h2 { font-size: clamp(27px, 3.8vw, 38px); color: var(--navy); line-height: 1.18; margin: 14px 0 22px; }
+  .problem p { font-size: 17.5px; color: var(--text-mid); line-height: 1.75; }
   .kicker {
     font-weight: 500; font-size: clamp(18px, 2.2vw, 21px); color: var(--navy);
-    border-left: 2px solid var(--sky); padding-left: 20px; margin: 24px 0 !important;
+    border-left: 2px solid var(--sky); padding-left: 20px; margin: 26px 0 0 !important;
   }
-  .proof-media { border-radius: 18px; overflow: hidden; box-shadow: 0 20px 50px -20px rgba(7,29,63,.35); }
-  .proof-media :global(.proof-img) { width: 100%; height: 100%; object-fit: cover; display: block; }
-  @media (max-width: 860px) { .proof-grid { grid-template-columns: 1fr; } }
 
-  /* WWD */
-  .wwd { padding: 88px 0; background: var(--ice); }
-  .wwd h2 { font-size: clamp(27px, 3.8vw, 38px); color: var(--navy); margin: 14px 0 12px; }
-  .wwd-lead { color: var(--text-mid); font-size: 16.5px; max-width: 60ch; margin-bottom: 44px; }
-  .wwd-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
-  .wwd-row { background: #fff; padding: 30px 28px; }
-  .wwd-row h3 { font-size: 19px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-  .wwd-tag {
-    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--steel); font-weight: 500; margin-left: 8px;
+  /* PILLARS */
+  .pillars { padding: 92px 0; background: var(--ice); }
+  .pillars h2 { font-size: clamp(27px, 3.8vw, 38px); color: var(--navy); margin: 12px 0 40px; }
+  .pillar-feature, .pillar-card {
+    display: block; background: #fff; border: 1px solid var(--line);
+    border-radius: 16px; text-decoration: none; transition: transform .2s, box-shadow .2s;
   }
-  .wwd-row p { font-size: 14.5px; color: var(--text-mid); line-height: 1.6; }
-  @media (max-width: 720px) { .wwd-grid { grid-template-columns: 1fr; } }
+  .pillar-feature:hover, .pillar-card:hover { transform: translateY(-3px); box-shadow: 0 16px 44px -20px rgba(7,29,63,.28); }
+  .pillar-feature { padding: 40px 40px 36px; margin-bottom: 18px; border-color: var(--sky); border-width: 1.5px; }
+  .pillar-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .pillar-card { padding: 30px 32px; }
+  .pillar-quiet { background: transparent; box-shadow: none; }
+  .pillar-quiet:hover { box-shadow: none; transform: none; background: #fff; }
+  .pillar-tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--steel); font-weight: 500;
+  }
+  .pillar-feature h3 { font-size: 26px; font-weight: 600; color: var(--navy); margin: 10px 0 12px; }
+  .pillar-card h3 { font-size: 19px; font-weight: 600; color: var(--navy); margin: 8px 0 10px; }
+  .pillar-feature p { font-size: 16px; color: var(--text-mid); line-height: 1.6; max-width: 62ch; margin-bottom: 18px; }
+  .pillar-card p { font-size: 14.5px; color: var(--text-mid); line-height: 1.55; margin-bottom: 14px; }
+  .pillar-link { font-size: 14px; font-weight: 500; color: var(--navy); }
+  @media (max-width: 760px) { .pillar-row { grid-template-columns: 1fr; } }
 
-  /* ROUTER */
-  .onward { padding: 92px 0; background: var(--paper); }
-  .onward h2 { font-size: clamp(26px, 3.6vw, 36px); color: var(--navy); margin: 12px 0 44px; }
-  .on-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .on-card {
-    border: 1px solid var(--line); border-radius: 14px; padding: 28px 26px;
-    background: #fff; display: block; transition: transform .2s, box-shadow .2s;
-  }
-  .on-card:hover { transform: translateY(-3px); box-shadow: 0 14px 40px -20px rgba(7,29,63,.25); }
-  .on-card h4 { font-size: 18.5px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-  .on-card p { font-size: 14.5px; color: var(--text-mid); line-height: 1.55; }
-  @media (max-width: 760px) { .on-grid { grid-template-columns: 1fr; } }
+  /* PROOF BAND */
+  .proofband { background: var(--navy-deep); padding: 88px 0; }
+  .proofband h2 { font-size: clamp(26px, 3.6vw, 36px); margin: 12px 0 44px; }
+  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 2px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.08); }
+  .proof-item { background: var(--navy-mid); padding: 26px 24px; display: block; text-decoration: none; }
+  .proof-item h4 { font-size: 15.5px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .proof-item p { font-size: 13.5px; color: #A9BCD1; line-height: 1.5; }
+  .proof-link:hover { background: var(--navy); }
+  .proof-link p { color: var(--sky-bright); }
 
   /* FOUNDER */
-  .founder { background: var(--navy-deep); color: #fff; padding: 88px 0; }
-  .founder-in { max-width: 640px; }
-  .founder h2 { font-size: clamp(26px, 3.6vw, 36px); margin: 14px 0 20px; }
-  .founder p { color: #C8D6E5; font-size: 16.5px; line-height: 1.65; margin-bottom: 22px; }
+  .founder { background: var(--paper); padding: 84px 0; border-top: 1px solid var(--line); }
+  .founder-in { max-width: 620px; }
+  .founder h2 { font-size: clamp(25px, 3.4vw, 33px); color: var(--navy); margin: 12px 0 18px; }
+  .founder p { color: var(--text-mid); font-size: 16px; line-height: 1.65; margin-bottom: 20px; }
 
   /* CTA */
   .cta { background: var(--navy-deep); color: #fff; padding: 90px 0; }
   .cta-in { text-align: center; max-width: 620px; margin: 0 auto; padding: 0 32px; }
-  .cta h2 { font-size: clamp(28px, 4vw, 40px); margin: 14px 0 16px; }
-  .cta p { color: #B8CBDE; font-size: 16.5px; line-height: 1.6; margin-bottom: 30px; }
+  .cta h2 { font-size: clamp(28px, 4vw, 40px); margin: 14px 0 30px; }
+  .cta-doors { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-labels {
+    display: flex; gap: 40px; justify-content: center; margin-top: 16px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: .06em;
+    color: var(--steel-lt); text-transform: uppercase;
+  }
 </style>
