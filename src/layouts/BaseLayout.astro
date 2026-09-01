@@ -2,6 +2,7 @@
 // Shared layout for every page, in both languages.
 // The design system (fonts, palette, nav, footer) lives here once —
 // individual pages only supply a title and their own content.
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -11,8 +12,6 @@ interface Props {
 
 const { title, description = '', lang = 'en' } = Astro.props;
 
-// Simple bilingual nav labels. As real pages are built (Phase 1+),
-// each nav item gets a real href per language via Astro's i18n helpers.
 const nav = {
   en: {
     performanceLab: 'Performance Lab',
@@ -33,6 +32,7 @@ const nav = {
 };
 
 const t = nav[lang];
+const prefix = lang === 'fr' ? '/fr' : '';
 ---
 
 <!doctype html>
@@ -43,19 +43,19 @@ const t = nav[lang];
     <title>{title} — Higher Ground</title>
     {description && <meta name="description" content={description} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <!-- TODO (Phase 1): pull in the real font imports (Fraunces / Inter / IBM Plex Mono)
-         and the navy/sky CSS variables from the existing hand-built pages. -->
   </head>
   <body>
-    <nav class="site-nav">
-      <div class="logo">Higher<span>·</span>Ground</div>
-      <div class="nav-links">
-        <a href="/performance-lab">{t.performanceLab}</a>
-        <a href="/leadership">{t.leadership}</a>
-        <a href="/agencies">{t.agencies}</a>
-        <a href="/journal">{t.journal}</a>
-        <a href="/about">{t.about}</a>
-        <a href="/enquire" class="nav-cta">{t.enquire}</a>
+    <nav class="nav">
+      <div class="nav-in">
+        <a href={prefix || '/'} class="logo">Higher<span>·</span>Ground</a>
+        <div class="nav-links">
+          <a href={`${prefix}/performance-lab`}>{t.performanceLab}</a>
+          <a href={`${prefix}/leadership`}>{t.leadership}</a>
+          <a href={`${prefix}/agencies`}>{t.agencies}</a>
+          <a href={`${prefix}/journal`}>{t.journal}</a>
+          <a href={`${prefix}/about`}>{t.about}</a>
+          <a href={`${prefix}/enquire`} class="nav-cta">{t.enquire}</a>
+        </div>
       </div>
     </nav>
 
@@ -63,8 +63,11 @@ const t = nav[lang];
       <slot />
     </main>
 
-    <footer class="site-footer">
-      <span>© 2026 Higher Ground</span>
+    <footer class="foot">
+      <div class="wrap foot-in">
+        <span>© 2026 Higher Ground</span>
+        <span>{lang === 'fr' ? 'Barcelone' : 'Barcelona'}</span>
+      </div>
     </footer>
   </body>
 </html>
