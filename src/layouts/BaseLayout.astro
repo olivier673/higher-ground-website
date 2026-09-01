@@ -1,0 +1,70 @@
+---
+// Shared layout for every page, in both languages.
+// The design system (fonts, palette, nav, footer) lives here once —
+// individual pages only supply a title and their own content.
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: 'en' | 'fr';
+}
+
+const { title, description = '', lang = 'en' } = Astro.props;
+
+// Simple bilingual nav labels. As real pages are built (Phase 1+),
+// each nav item gets a real href per language via Astro's i18n helpers.
+const nav = {
+  en: {
+    performanceLab: 'Performance Lab',
+    leadership: 'Leadership',
+    agencies: 'Agencies',
+    journal: 'Journal',
+    about: 'About',
+    enquire: 'Enquire',
+  },
+  fr: {
+    performanceLab: 'Performance Lab',
+    leadership: 'Leadership',
+    agencies: 'Agences',
+    journal: 'Journal',
+    about: 'À propos',
+    enquire: 'Contact',
+  },
+};
+
+const t = nav[lang];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} — Higher Ground</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- TODO (Phase 1): pull in the real font imports (Fraunces / Inter / IBM Plex Mono)
+         and the navy/sky CSS variables from the existing hand-built pages. -->
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="logo">Higher<span>·</span>Ground</div>
+      <div class="nav-links">
+        <a href="/performance-lab">{t.performanceLab}</a>
+        <a href="/leadership">{t.leadership}</a>
+        <a href="/agencies">{t.agencies}</a>
+        <a href="/journal">{t.journal}</a>
+        <a href="/about">{t.about}</a>
+        <a href="/enquire" class="nav-cta">{t.enquire}</a>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Higher Ground</span>
+    </footer>
+  </body>
+</html>
