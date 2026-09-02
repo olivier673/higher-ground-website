@@ -5,6 +5,7 @@ import heroRidge from '../assets/images/hero-ridge.jpg';
 import climberRidge from '../assets/images/climber-ridge.jpg';
 import olivierKeynote from '../assets/images/olivier-keynote.jpg';
 import olivierClimbing from '../assets/images/olivier-climbing.jpg';
+import amaDablamPeak from '../assets/images/ama-dablam-peak.jpg';
 ---
 
 <BaseLayout
@@ -60,7 +61,7 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
             <Image src={climberRidge} alt="A climber roped up, cramponing along a rocky summit ridge" width={800} quality={78} />
           </div>
           <div class="pillar-body">
-            <span class="pillar-tag">Performance Lab</span>
+            <span class="pillar-tag">The Performance Lab</span>
             <span class="audience-tag">for athletes</span>
             <h3>You want to be ready for an ambitious mountain objective.</h3>
             <p>
@@ -68,11 +69,17 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
               everything your objective depends on — engine, terrain skill,
               acclimatisation, efficiency, health — into one governed
               preparation, <strong>ultra-personalized</strong> to your
-              mountain and your timeline. Defined by the stakes, not the
-              sport: 8,000ers without supplemental oxygen, speed ascents and
-              FKTs, technical objectives at altitude. The same system is live
-              right now, preparing a no-oxygen ascent of Manaslu (8,163m) —
-              proof it works before it's asked to prepare you.
+              mountain and your timeline.
+            </p>
+            <p>
+              Defined by the stakes, not the sport: 8,000ers without
+              supplemental oxygen, speed ascents and FKTs, technical
+              objectives at altitude.
+            </p>
+            <p>
+              The same system is live right now, preparing a no-oxygen ascent
+              of Manaslu (8,163m) — proof it works before it's asked to
+              prepare you.
             </p>
             <span class="pillar-link">Discover the Performance Lab →</span>
 
@@ -102,11 +109,18 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
               objectives strip leadership down to its essentials: you prepare
               properly or you don't summit, you read the conditions honestly
               or you get hurt, you make the hard call — to push or to turn —
-              when it matters, not after. The same discipline that decides an
-              expedition decides how a team performs under real pressure — <strong>knowing what matters, adapting when reality changes,
-              and having the composure to own the decision.</strong> Not
-              motivation. Not metaphor for its own sake. The same readiness,
-              applied where the stakes are different but no less real.
+              when it matters, not after.
+            </p>
+            <p>
+              The same discipline that decides an expedition decides how a
+              team performs under real pressure — <strong>knowing what
+              matters, adapting when reality changes, and having the
+              composure to own the decision.</strong> Not motivation. Not
+              metaphor for its own sake.
+            </p>
+            <p>
+              The same readiness, applied where the stakes are different but
+              no less real.
             </p>
             <span class="pillar-link">Discover The Ridgeline Keynote →</span>
           </div>
@@ -138,23 +152,25 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
 
   <!-- AMA DABLAM 27 -->
   <section class="expedition">
-    <svg class="contours" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" stroke="#7FB0D9" stroke-width="1">
-        <path d="M-50,236 C320,180 460,116 640,126 C820,136 940,82 1070,86 C1175,90 1240,80 1260,82" opacity=".38"/>
-      </g>
-    </svg>
-    <div class="wrap">
-      <div class="eyebrow" style="color:var(--sky)">The next objective — 2027</div>
-      <h2 class="serif">Not a summit story. <em>A team story.</em></h2>
-      <p class="expedition-body">
-        Ama Dablam, 6,812m, Nepal — Olivier's next objective. But the story
-        worth telling isn't the ascent. It's how a team gets built: the first
-        calls, the training weekends, the doubts, the progress — documented
-        from day one, because how ordinary people with jobs and families
-        accomplish extraordinary things is worth showing honestly, not just
-        the summit day.
-      </p>
-      <a href="/journal" class="btn btn-primary">Follow the journal →</a>
+    <div class="expedition-grid">
+      <div class="expedition-photo">
+        <Image src={amaDablamPeak} alt="Ama Dablam's summit pyramid rising through cloud" width={900} quality={78} />
+      </div>
+      <div class="expedition-text">
+        <div class="wrap-inner">
+          <div class="eyebrow" style="color:var(--sky)">Project Ama Dablam 2027</div>
+          <h2 class="serif">Ama Dablam: <em>not a summit story, a team story.</em></h2>
+          <p class="expedition-body">
+            Ama Dablam, 6,812m, Nepal — Olivier's next objective. But the story
+            worth telling isn't the ascent. It's how a team gets built: the
+            first calls, the training weekends, the doubts, the progress —
+            documented from day one, because how ordinary people with jobs
+            and families accomplish extraordinary things is worth showing
+            honestly, not just the summit day.
+          </p>
+          <a href="/journal" class="btn btn-primary">Follow the journal →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -280,13 +296,25 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
   .ars-cta:hover { background: var(--sky); color: var(--navy-deep); }
   @media (max-width: 800px) { .ars-grid { grid-template-columns: 1fr; gap: 26px; } }
 
-  /* AMA DABLAM 27 */
-  .expedition { background: var(--navy-deep); color: #fff; padding: 92px 0; position: relative; overflow: hidden; }
-  .expedition .contours { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .22; }
-  .expedition .wrap { position: relative; z-index: 2; }
-  .expedition h2 { font-size: clamp(28px, 4vw, 42px); margin: 12px 0 22px; max-width: 18ch; }
+  /* AMA DABLAM 27 — photo left (heavy dark navy tint, near-opaque), text right */
+  .expedition { background: var(--navy-deep); color: #fff; }
+  .expedition-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
+  .expedition-photo { position: relative; overflow: hidden; }
+  .expedition-photo :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .expedition-photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: var(--navy-deep); opacity: .82; mix-blend-mode: multiply; pointer-events: none;
+  }
+  .expedition-text { display: flex; align-items: center; padding: 72px 0; }
+  .expedition-text .wrap-inner { padding: 0 48px; max-width: 560px; }
+  .expedition h2 { font-size: clamp(27px, 3.4vw, 38px); line-height: 1.24; margin: 12px 0 22px; }
   .expedition h2 em { font-style: normal; color: var(--sky-bright); }
-  .expedition-body { font-size: 17px; color: #C8D6E5; font-weight: 300; line-height: 1.7; max-width: 62ch; margin-bottom: 30px; }
+  .expedition-body { font-size: 16.5px; color: #C8D6E5; font-weight: 300; line-height: 1.68; margin-bottom: 28px; }
+  @media (max-width: 860px) {
+    .expedition-grid { grid-template-columns: 1fr; }
+    .expedition-photo { aspect-ratio: 16 / 10; }
+    .expedition-text .wrap-inner { padding: 40px 32px; max-width: none; }
+  }
 
   /* BEHIND HIGHER GROUND */
   .founder { background: var(--paper); padding: 92px 0; border-top: 1px solid var(--line); }
@@ -295,7 +323,7 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
   .founder-photo-inner :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
   .founder-photo-inner::after {
     content: ""; position: absolute; inset: 0;
-    background: var(--navy); opacity: .16; mix-blend-mode: multiply; pointer-events: none;
+    background: var(--navy); opacity: .24; mix-blend-mode: multiply; pointer-events: none;
   }
   .founder-text h2 { font-size: clamp(27px, 3.7vw, 37px); color: var(--navy); margin: 12px 0 22px; }
   .founder-text p { color: var(--text-mid); font-size: 17.5px; line-height: 1.72; margin-bottom: 18px; }
