@@ -2,13 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import heroRidge from '../assets/images/hero-ridge.jpg';
-import olivierClimbing from '../assets/images/olivier-climbing.jpg';
+import couloirSunset from '../assets/images/couloir-sunset.jpg';
 import olivierKeynote from '../assets/images/olivier-keynote.jpg';
+import olivierClimbing from '../assets/images/olivier-climbing.jpg';
 ---
 
 <BaseLayout
   title="Home"
-  description="Higher Ground — Olivier Gil's mountain coaching practice, for athletes preparing serious altitude goals and companies building readiness into their leadership."
+  description="Higher Ground — Olivier Gil's mountain coaching practice, for objectives from your first 6,000m peak to no-oxygen 8,000ers, and for companies building that same readiness into their leadership."
   lang="en"
 >
   <!-- HERO -->
@@ -21,17 +22,17 @@ import olivierKeynote from '../assets/images/olivier-keynote.jpg';
       <div class="eyebrow" style="color:var(--sky)">Mountain &amp; altitude readiness</div>
       <h1>Know you're ready. <em>Not just ambitious.</em></h1>
       <p class="hero-sub">
-        Higher Ground — <strong>Olivier Gil's</strong> mountain coaching practice, for
-        athletes preparing serious altitude goals and companies building readiness
-        into their leadership.
+        Higher Ground — <strong>Olivier Gil's</strong> mountain coaching practice,
+        for objectives from your first 6,000m peak to no-oxygen 8,000ers, and
+        for companies building that same readiness into their leadership.
       </p>
       <div class="hero-cta">
-        <a href="/enquire" class="btn btn-primary">Let's talk</a>
+        <a href="#pillars" class="btn btn-primary">What are you preparing for? ↓</a>
       </div>
     </div>
   </header>
 
-  <!-- WHAT WE DO — problem + solution merged, two ways in -->
+  <!-- WHAT ARE YOU PREPARING FOR — Performance Lab / Ridgeline Keynote -->
   <section class="pillars" id="pillars">
     <div class="wrap">
       <div class="eyebrow">Where to start</div>
@@ -40,7 +41,7 @@ import olivierKeynote from '../assets/images/olivier-keynote.jpg';
       <div class="pillar-grid">
         <a href="/performance-lab" class="pillar-card">
           <div class="pillar-photo">
-            <Image src={olivierClimbing} alt="Olivier climbing on a granite slab, roped up in the mountains" width={800} quality={78} />
+            <Image src={couloirSunset} alt="A climber ascending a steep snow couloir at sunset" width={800} quality={78} />
           </div>
           <div class="pillar-body">
             <span class="pillar-tag">Performance Lab</span>
@@ -71,23 +72,43 @@ import olivierKeynote from '../assets/images/olivier-keynote.jpg';
             <Image src={olivierKeynote} alt="Olivier delivering a keynote on stage" width={800} quality={78} />
           </div>
           <div class="pillar-body">
-            <span class="pillar-tag">Leadership</span>
+            <span class="pillar-tag">The Ridgeline Keynote</span>
             <h3>You want your team ready when it actually matters.</h3>
             <p>
-              Most leadership development runs on motivation and frameworks,
-              tested by nothing more consequential than a workshop. The
-              Ridgeline brings lessons earned where the cost of getting it
-              wrong is real — <strong>structure over willpower</strong>, and
-              the judgment to turn back before it's too late. A 45-minute
-              keynote built on the conversation climbers have in a mess tent
-              the night before a summit attempt, where every doubt gets named
-              before anyone commits. Teams leave with a shared language for
-              exactly that moment — and use it long after the keynote ends.
+              The mountain is the sharpest classroom there is — not
+              motivation, not metaphor for its own sake, but the same
+              readiness applied where the stakes are different but no less
+              real. The night before a summit attempt, climbers have one
+              conversation in the mess tent, where every doubt gets named
+              before anyone commits. The Ridgeline brings that discipline into
+              the room — <strong>structure over willpower</strong>, and the
+              judgment to turn back before it's too late.
             </p>
-            <span class="pillar-link">Discover Leadership →</span>
+            <span class="pillar-link">Discover The Ridgeline Keynote →</span>
           </div>
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- METHOD TEASER -->
+  <section class="method">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--sky)">One method behind every path</div>
+      <h2 class="serif" style="color:#fff">Ready is a verdict. <em>Not a feeling.</em></h2>
+      <p class="method-lead">
+        The Altitude Readiness System — six integrated layers, developed by
+        Higher Ground and proven at the highest level.
+      </p>
+      <div class="method-tags">
+        <span>Engine</span>
+        <span>Mountain output</span>
+        <span>Altitude exposure</span>
+        <span>Pre-acclimatisation</span>
+        <span>Efficiency</span>
+        <span>Health &amp; recovery</span>
+      </div>
+      <a href="/method" class="pillar-link method-cta">Explore the Altitude Readiness System →</a>
     </div>
   </section>
 
@@ -95,25 +116,26 @@ import olivierKeynote from '../assets/images/olivier-keynote.jpg';
   <section class="founder">
     <div class="wrap founder-grid">
       <div class="founder-photo">
-        <div class="photo-slot">
-          PHOTO SLOT — portrait of Olivier, mountain or executive context
+        <div class="pillar-photo founder-photo-inner">
+          <Image src={olivierClimbing} alt="Olivier climbing on a granite slab, roped up in the mountains" width={700} quality={80} />
         </div>
       </div>
       <div class="founder-text">
         <div class="eyebrow">Behind Higher Ground</div>
         <h2 class="serif">Two demanding worlds. One discipline.</h2>
         <p>
-          Higher Ground is built by <strong>Olivier Gil</strong>. As a senior
-          executive, he leads teams and projects internationally — today in
-          cybersecurity, with a career spanning other industries before that.
-          As an alpinist, the mountains have been his teacher: ascents across
-          the Pyrenees, the Alps and the Pamir, and now Ama Dablam, Nepal, in
-          2027.
+          Higher Ground is built by <strong>Olivier Gil</strong> — for over
+          fifteen years both a senior executive in high-stakes environments
+          and a serious alpinist, from technical ascents across the Pyrenees,
+          the Alps and the Pamir to Ama Dablam, Nepal, ahead in 2027. The
+          lesson from both worlds is the same: <strong>success isn't doing
+          more — it's preparing better, and knowing honestly when you're
+          ready.</strong> UESCA-certified coach, grounded in the reference
+          literature of alpinism.
         </p>
         <p>
-          UESCA-certified as a coach, every method here is tested on his own
-          preparation first — currently proven live with Simon Niklaus's
-          no-oxygen ascent of Manaslu.
+          Proven live right now with Simon Niklaus's no-oxygen ascent of
+          Manaslu.
         </p>
         <a href="/about" class="btn-quiet">More about Olivier →</a>
       </div>
@@ -150,10 +172,10 @@ import olivierKeynote from '../assets/images/olivier-keynote.jpg';
     line-height: 1.08; letter-spacing: -.02em; margin: 20px 0 26px; max-width: 15ch;
   }
   .hero h1 em { font-style: normal; color: var(--sky-bright); }
-  .hero-sub { font-size: clamp(17px, 1.9vw, 20px); color: #C8D6E5; font-weight: 300; max-width: 52ch; line-height: 1.65; }
+  .hero-sub { font-size: clamp(17px, 1.9vw, 20px); color: #C8D6E5; font-weight: 300; max-width: 54ch; line-height: 1.65; }
   .hero-cta { margin-top: 36px; }
 
-  /* PILLARS — two wide cards, photo band + merged problem/solution text */
+  /* PILLARS */
   .pillars { padding: 96px 0; background: var(--ice); }
   .pillars h2 { font-size: clamp(28px, 3.9vw, 40px); color: var(--navy); margin: 12px 0 44px; }
   .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; align-items: stretch; }
@@ -165,8 +187,6 @@ import olivierKeynote from '../assets/images/olivier-keynote.jpg';
   }
   .pillar-card:hover { transform: translateY(-3px); box-shadow: 0 18px 48px -20px rgba(7,29,63,.28); }
 
-  /* Photo band — same navy-tint treatment as the hero, at reduced strength
-     so the person underneath stays clearly visible. */
   .pillar-photo { aspect-ratio: 16 / 10; position: relative; overflow: hidden; }
   .pillar-photo :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9); }
   .pillar-photo::after {
@@ -177,8 +197,8 @@ import olivierKeynote from '../assets/images/olivier-keynote.jpg';
 
   .pillar-body { padding: 32px 40px 42px; display: flex; flex-direction: column; flex: 1; }
   .pillar-tag {
-    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--steel); font-weight: 500;
+    font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--navy);
   }
   .pillar-card h3 { font-size: 24px; font-weight: 600; color: var(--navy); line-height: 1.32; margin: 14px 0 16px; }
   .pillar-card p { font-size: 17px; color: var(--text-mid); line-height: 1.68; margin-bottom: 20px; }
@@ -196,19 +216,27 @@ import olivierKeynote from '../assets/images/olivier-keynote.jpg';
   .subnote-link { color: var(--navy); font-weight: 600; white-space: nowrap; }
   @media (max-width: 860px) { .pillar-grid { grid-template-columns: 1fr; } }
 
+  /* METHOD TEASER */
+  .method { background: var(--navy-deep); padding: 88px 0; }
+  .method h2 { font-size: clamp(28px, 4vw, 42px); margin: 12px 0 20px; }
+  .method h2 em { font-style: normal; color: var(--sky-bright); }
+  .method-lead { font-size: 17px; color: #B8CBDE; max-width: 62ch; line-height: 1.65; margin-bottom: 28px; }
+  .method-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+  .method-tags span {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .04em;
+    color: var(--sky-bright); border: 1px solid rgba(127,176,217,.35); border-radius: 100px;
+    padding: 7px 16px;
+  }
+  .method-cta { color: var(--sky-bright) !important; }
+
   /* BEHIND HIGHER GROUND */
   .founder { background: var(--paper); padding: 92px 0; border-top: 1px solid var(--line); }
   .founder-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 52px; align-items: center; }
-  .photo-slot {
-    aspect-ratio: 4 / 5; border-radius: 16px; border: 1px dashed var(--ice-line);
-    background: var(--ice); display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 24px; font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px; letter-spacing: .04em; color: var(--steel); line-height: 1.6;
-  }
+  .founder-photo-inner { aspect-ratio: 4 / 5; border-radius: 16px; }
   .founder-text h2 { font-size: clamp(27px, 3.7vw, 37px); color: var(--navy); margin: 12px 0 22px; }
   .founder-text p { color: var(--text-mid); font-size: 17.5px; line-height: 1.72; margin-bottom: 18px; }
   .founder-text p strong { color: var(--navy); font-weight: 600; }
-  @media (max-width: 780px) { .founder-grid { grid-template-columns: 1fr; gap: 32px; } .photo-slot { max-width: 320px; margin: 0 auto; } }
+  @media (max-width: 780px) { .founder-grid { grid-template-columns: 1fr; gap: 32px; } .founder-photo-inner { max-width: 320px; margin: 0 auto; } }
 
   /* CTA */
   .cta { background: var(--navy-deep); color: #fff; padding: 92px 0; }
