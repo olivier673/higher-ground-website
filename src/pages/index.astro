@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import heroRidge from '../assets/images/hero-ridge.jpg';
-import couloirSunset from '../assets/images/couloir-sunset.jpg';
+import climberRidge from '../assets/images/climber-ridge.jpg';
 import olivierKeynote from '../assets/images/olivier-keynote.jpg';
 import olivierClimbing from '../assets/images/olivier-climbing.jpg';
 ---
@@ -57,7 +57,7 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
       <div class="pillar-grid">
         <a href="/performance-lab" class="pillar-card">
           <div class="pillar-photo">
-            <Image src={couloirSunset} alt="A climber ascending a steep snow couloir at sunset" width={800} quality={78} />
+            <Image src={climberRidge} alt="A climber roped up, cramponing along a rocky summit ridge" width={800} quality={78} />
           </div>
           <div class="pillar-body">
             <span class="pillar-tag">Performance Lab</span>
@@ -115,49 +115,46 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
     </div>
   </section>
 
-  <!-- METHOD -->
-  <section class="method">
+  <!-- THE ALTITUDE READINESS SYSTEM -->
+  <section class="ars">
+    <svg class="contours" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#7FB0D9" stroke-width="1">
+        <path d="M-50,330 C260,280 400,210 600,226 C800,242 920,180 1070,188 C1175,193 1240,180 1260,184" opacity=".5"/>
+        <path d="M-50,275 C280,220 420,150 620,164 C820,178 940,116 1078,122 C1180,126 1245,116 1260,120" opacity=".55"/>
+      </g>
+    </svg>
+    <div class="wrap ars-in">
+      <div class="eyebrow" style="color:var(--sky)">The Altitude Readiness System</div>
+      <div class="ars-grid">
+        <div class="ars-lead">Higher Ground developed the <em>Altitude Readiness System</em> — and proves it against objectives that leave no room for guesswork.</div>
+        <div>
+          <p class="ars-body">The ARS integrates everything readiness depends on — engine, terrain skills, acclimatisation, pre-acclimatisation, efficiency, health — into one governed preparation. It's built on the reference science of mountain performance and operated with specialist partners.</p>
+          <p class="ars-body">Right now, the system is <strong>live at the highest level</strong>: preparing an athlete for a no-oxygen ascent of Manaslu (8,163m), the first of fourteen eight-thousanders without supplemental oxygen. <strong>The same system that readies an athlete for 8,000m without oxygen is what prepares you for your objective</strong> — your first 6,000m peak, or your hardest yet.</p>
+          <a class="ars-cta" href="/method">See how the system works →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMA DABLAM 27 -->
+  <section class="expedition">
+    <svg class="contours" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#7FB0D9" stroke-width="1">
+        <path d="M-50,236 C320,180 460,116 640,126 C820,136 940,82 1070,86 C1175,90 1240,80 1260,82" opacity=".38"/>
+      </g>
+    </svg>
     <div class="wrap">
-      <div class="eyebrow" style="color:var(--sky)">One method behind every path</div>
-      <h2 class="serif">The plan is now the commodity. <em>The judgment is the value.</em></h2>
-      <p class="method-lead">
-        Anyone — or any AI — can generate a training plan today. What no
-        algorithm can do is what readiness actually takes. That's what
-        Higher Ground is built from:
+      <div class="eyebrow" style="color:var(--sky)">The next objective — 2027</div>
+      <h2 class="serif">Not a summit story. <em>A team story.</em></h2>
+      <p class="expedition-body">
+        Ama Dablam, 6,812m, Nepal — Olivier's next objective. But the story
+        worth telling isn't the ascent. It's how a team gets built: the first
+        calls, the training weekends, the doubts, the progress — documented
+        from day one, because how ordinary people with jobs and families
+        accomplish extraordinary things is worth showing honestly, not just
+        the summit day.
       </p>
-
-      <div class="method-grid">
-        <div class="method-card">
-          <h4>A system, not a plan</h4>
-          <p>The Altitude Readiness System — six integrated layers, developed by Higher Ground and tested at the highest level.</p>
-        </div>
-        <div class="method-card">
-          <h4>The whole person, prepared together</h4>
-          <p>Engine, altitude, nutrition, breathing, recovery, health — one holistic preparation, not siloed advice.</p>
-        </div>
-        <div class="method-card">
-          <h4>Pre-acclimatisation, individualised</h4>
-          <p>Hypoxic protocols built to your physiology and your mountain — not a generic tent schedule.</p>
-        </div>
-        <div class="method-card">
-          <h4>A network, not one opinion</h4>
-          <p>Testing labs, altitude specialists and mountain-medicine partners behind every recommendation.</p>
-        </div>
-      </div>
-
-      <div class="method-tags">
-        <span>Engine</span>
-        <span>Mountain output</span>
-        <span>Altitude exposure</span>
-        <span>Pre-acclimatisation</span>
-        <span>Efficiency</span>
-        <span>Health &amp; recovery</span>
-      </div>
-
-      <div class="method-close">
-        <p class="punch">Knowing what matters. Adapting when reality changes. Making sure you arrive ready. That's the human work.</p>
-        <a href="/method" class="btn btn-primary">The Higher Ground method →</a>
-      </div>
+      <a href="/journal" class="btn btn-primary">Follow the journal →</a>
     </div>
   </section>
 
@@ -165,26 +162,24 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
   <section class="founder">
     <div class="wrap founder-grid">
       <div class="founder-photo">
-        <div class="pillar-photo founder-photo-inner">
+        <div class="founder-photo-inner">
           <Image src={olivierClimbing} alt="Olivier climbing on a granite slab, roped up in the mountains" width={700} quality={80} />
         </div>
       </div>
       <div class="founder-text">
         <div class="eyebrow">Behind Higher Ground</div>
-        <h2 class="serif">Two demanding worlds. One discipline.</h2>
+        <h2 class="serif">Two demanding worlds.<br><em>One discipline.</em></h2>
         <p>
           Higher Ground is built by <strong>Olivier Gil</strong> — for over
           fifteen years both a senior executive in high-stakes environments
           and a serious alpinist, from technical ascents across the Pyrenees,
-          the Alps and the Pamir to Ama Dablam, Nepal, ahead in 2027. The
-          lesson from both worlds is the same: <strong>success isn't doing
+          the Alps and the Pamir to Ama Dablam, Nepal, ahead in 2027.
+        </p>
+        <p>
+          The lesson from both worlds is the same: <strong>success isn't doing
           more — it's preparing better, and knowing honestly when you're
           ready.</strong> UESCA-certified coach, grounded in the reference
           literature of alpinism.
-        </p>
-        <p>
-          Proven live right now with Simon Niklaus's no-oxygen ascent of
-          Manaslu.
         </p>
         <a href="/about" class="btn-quiet">More about Olivier →</a>
       </div>
@@ -248,7 +243,7 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
     text-transform: uppercase; color: var(--tag-blue);
   }
   .audience-tag {
-    font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .06em;
+    font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; letter-spacing: .08em;
     text-transform: uppercase; color: var(--steel); margin-left: 10px;
   }
   .pillar-card h3 { font-size: 24px; font-weight: 600; color: var(--navy); line-height: 1.32; margin: 14px 0 16px; }
@@ -267,33 +262,41 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
   .subnote-link { color: var(--navy); font-weight: 600; white-space: nowrap; }
   @media (max-width: 860px) { .pillar-grid { grid-template-columns: 1fr; } }
 
-  /* METHOD */
-  .method { background: var(--navy-deep); padding: 92px 0; position: relative; overflow: hidden; }
-  .method h2 { font-size: clamp(28px, 4vw, 42px); color: #fff; line-height: 1.16; margin: 12px 0 20px; max-width: 20ch; }
-  .method h2 em { font-style: normal; color: var(--sky-bright); }
-  .method-lead { font-size: 17px; color: #B8CBDE; max-width: 62ch; line-height: 1.65; margin-bottom: 40px; }
-  .method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 36px; }
-  .method-card {
-    border: 1px solid rgba(127,176,217,.22); border-radius: 14px;
-    padding: 26px 26px 24px; background: rgba(13,37,72,.45);
+  /* ALTITUDE READINESS SYSTEM */
+  .ars { background: var(--navy); color: #fff; padding: 84px 0; position: relative; overflow: hidden; }
+  .ars .contours { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .3; }
+  .ars-in { position: relative; z-index: 2; }
+  .ars-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; margin-top: 24px; }
+  .ars-lead { font-size: clamp(25px, 3.2vw, 35px); font-weight: 600; line-height: 1.25; letter-spacing: -.01em; }
+  .ars-lead em { font-style: normal; color: var(--sky-bright); }
+  .ars-body { color: #B8CBDE; font-size: 16.5px; line-height: 1.65; }
+  .ars-body strong { color: #fff; font-weight: 600; }
+  .ars-body + .ars-body { margin-top: 14px; }
+  .ars-cta {
+    display: inline-block; margin-top: 22px; font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--sky);
+    border: 1px solid rgba(127,176,217,.35); border-radius: 100px; padding: 8px 16px; transition: all .2s;
   }
-  .method-card h4 { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-  .method-card p { font-size: 14.5px; color: #9FB6CC; line-height: 1.55; }
-  @media (max-width: 720px) { .method-grid { grid-template-columns: 1fr; } }
-  .method-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
-  .method-tags span {
-    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .04em;
-    color: var(--sky-bright); border: 1px solid rgba(127,176,217,.35); border-radius: 100px;
-    padding: 7px 16px;
-  }
-  .method-close { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
-  .method-close .punch { font-size: clamp(17px, 2vw, 20px); color: var(--sky-bright); max-width: 44ch; line-height: 1.5; font-weight: 300; }
+  .ars-cta:hover { background: var(--sky); color: var(--navy-deep); }
+  @media (max-width: 800px) { .ars-grid { grid-template-columns: 1fr; gap: 26px; } }
+
+  /* AMA DABLAM 27 */
+  .expedition { background: var(--navy-deep); color: #fff; padding: 92px 0; position: relative; overflow: hidden; }
+  .expedition .contours { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .22; }
+  .expedition .wrap { position: relative; z-index: 2; }
+  .expedition h2 { font-size: clamp(28px, 4vw, 42px); margin: 12px 0 22px; max-width: 18ch; }
+  .expedition h2 em { font-style: normal; color: var(--sky-bright); }
+  .expedition-body { font-size: 17px; color: #C8D6E5; font-weight: 300; line-height: 1.7; max-width: 62ch; margin-bottom: 30px; }
 
   /* BEHIND HIGHER GROUND */
   .founder { background: var(--paper); padding: 92px 0; border-top: 1px solid var(--line); }
   .founder-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 52px; align-items: center; }
-  .founder-photo-inner { aspect-ratio: 4 / 5; border-radius: 16px; }
-  .founder-photo-inner :global(img) { filter: none; }
+  .founder-photo-inner { aspect-ratio: 4 / 5; border-radius: 16px; position: relative; overflow: hidden; }
+  .founder-photo-inner :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .founder-photo-inner::after {
+    content: ""; position: absolute; inset: 0;
+    background: var(--navy); opacity: .16; mix-blend-mode: multiply; pointer-events: none;
+  }
   .founder-text h2 { font-size: clamp(27px, 3.7vw, 37px); color: var(--navy); margin: 12px 0 22px; }
   .founder-text p { color: var(--text-mid); font-size: 17.5px; line-height: 1.72; margin-bottom: 18px; }
   .founder-text p strong { color: var(--navy); font-weight: 600; }
