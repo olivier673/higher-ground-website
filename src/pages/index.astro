@@ -12,6 +12,22 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
   description="Higher Ground — Olivier Gil's mountain coaching practice, for objectives from your first 6,000m peak to no-oxygen 8,000ers, and for companies building that same readiness into their leadership."
   lang="en"
 >
+  <!-- Shared duotone filter (navy -> sky-bright), used on the pillar photos -->
+  <svg width="0" height="0" style="position:absolute">
+    <filter id="duotone" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="
+        0.33 0.33 0.33 0 0
+        0.33 0.33 0.33 0 0
+        0.33 0.33 0.33 0 0
+        0    0    0    1 0"/>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="0.0275 0.6549"/>
+        <feFuncG type="table" tableValues="0.1137 0.8039"/>
+        <feFuncB type="table" tableValues="0.2471 0.9255"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
   <!-- HERO -->
   <header class="hero">
     <div class="hero-media">
@@ -45,23 +61,28 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
           </div>
           <div class="pillar-body">
             <span class="pillar-tag">Performance Lab</span>
+            <span class="audience-tag">for athletes</span>
             <h3>You want to be ready for an ambitious mountain objective.</h3>
             <p>
-              A generic training plan doesn't know your objective's altitude
-              profile or your own acclimatization response. Higher Ground builds <strong>altitude readiness</strong> around you specifically — <strong>ultra-personalized</strong> to your mountain, your
-              physiology and your timeline. Defined by the stakes, not the
+              Higher Ground's <strong>Altitude Readiness System</strong> builds
+              everything your objective depends on — engine, terrain skill,
+              acclimatisation, efficiency, health — into one governed
+              preparation, <strong>ultra-personalized</strong> to your
+              mountain and your timeline. Defined by the stakes, not the
               sport: 8,000ers without supplemental oxygen, speed ascents and
-              FKTs, technical objectives at altitude. If the margin is thin and
-              the consequences are real, this is where readiness becomes a
-              decision, not a feeling.
+              FKTs, technical objectives at altitude. The same system is live
+              right now, preparing a no-oxygen ascent of Manaslu (8,163m) —
+              proof it works before it's asked to prepare you.
             </p>
             <span class="pillar-link">Discover the Performance Lab →</span>
 
             <div class="pillar-subnote">
               <span class="subnote-label">Run an expedition agency?</span>
               <p>
-                The agency brings the mountain. Higher Ground prepares the
-                mountaineer — occasionally open to the right partnership. <span class="subnote-link">Get in touch →</span>
+                Your clients have booked their expedition — you want them to
+                arrive genuinely ready. That same readiness, built into the
+                trips you already sell. Occasionally open to the right
+                partnership. <span class="subnote-link">Get in touch →</span>
               </p>
             </div>
           </div>
@@ -73,16 +94,19 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
           </div>
           <div class="pillar-body">
             <span class="pillar-tag">The Ridgeline Keynote</span>
-            <h3>You want your team ready when it actually matters.</h3>
+            <span class="audience-tag">for companies</span>
+            <h3>You want your people ready when it counts.</h3>
             <p>
-              The mountain is the sharpest classroom there is — not
-              motivation, not metaphor for its own sake, but the same
-              readiness applied where the stakes are different but no less
-              real. The night before a summit attempt, climbers have one
-              conversation in the mess tent, where every doubt gets named
-              before anyone commits. The Ridgeline brings that discipline into
-              the room — <strong>structure over willpower</strong>, and the
-              judgment to turn back before it's too late.
+              The Ridgeline is a keynote for companies and leadership teams,
+              drawn from real decisions above 6,000 metres. High-altitude
+              objectives strip leadership down to its essentials: you prepare
+              properly or you don't summit, you read the conditions honestly
+              or you get hurt, you make the hard call — to push or to turn —
+              when it matters, not after. The same discipline that decides an
+              expedition decides how a team performs under real pressure — <strong>knowing what matters, adapting when reality changes,
+              and having the composure to own the decision.</strong> Not
+              motivation. Not metaphor for its own sake. The same readiness,
+              applied where the stakes are different but no less real.
             </p>
             <span class="pillar-link">Discover The Ridgeline Keynote →</span>
           </div>
@@ -91,15 +115,36 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
     </div>
   </section>
 
-  <!-- METHOD TEASER -->
+  <!-- METHOD -->
   <section class="method">
     <div class="wrap">
       <div class="eyebrow" style="color:var(--sky)">One method behind every path</div>
-      <h2 class="serif" style="color:#fff">Ready is a verdict. <em>Not a feeling.</em></h2>
+      <h2 class="serif">The plan is now the commodity. <em>The judgment is the value.</em></h2>
       <p class="method-lead">
-        The Altitude Readiness System — six integrated layers, developed by
-        Higher Ground and proven at the highest level.
+        Anyone — or any AI — can generate a training plan today. What no
+        algorithm can do is what readiness actually takes. That's what
+        Higher Ground is built from:
       </p>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <h4>A system, not a plan</h4>
+          <p>The Altitude Readiness System — six integrated layers, developed by Higher Ground and tested at the highest level.</p>
+        </div>
+        <div class="method-card">
+          <h4>The whole person, prepared together</h4>
+          <p>Engine, altitude, nutrition, breathing, recovery, health — one holistic preparation, not siloed advice.</p>
+        </div>
+        <div class="method-card">
+          <h4>Pre-acclimatisation, individualised</h4>
+          <p>Hypoxic protocols built to your physiology and your mountain — not a generic tent schedule.</p>
+        </div>
+        <div class="method-card">
+          <h4>A network, not one opinion</h4>
+          <p>Testing labs, altitude specialists and mountain-medicine partners behind every recommendation.</p>
+        </div>
+      </div>
+
       <div class="method-tags">
         <span>Engine</span>
         <span>Mountain output</span>
@@ -108,7 +153,11 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
         <span>Efficiency</span>
         <span>Health &amp; recovery</span>
       </div>
-      <a href="/method" class="pillar-link method-cta">Explore the Altitude Readiness System →</a>
+
+      <div class="method-close">
+        <p class="punch">Knowing what matters. Adapting when reality changes. Making sure you arrive ready. That's the human work.</p>
+        <a href="/method" class="btn btn-primary">The Higher Ground method →</a>
+      </div>
     </div>
   </section>
 
@@ -187,18 +236,20 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
   }
   .pillar-card:hover { transform: translateY(-3px); box-shadow: 0 18px 48px -20px rgba(7,29,63,.28); }
 
-  .pillar-photo { aspect-ratio: 16 / 10; position: relative; overflow: hidden; }
-  .pillar-photo :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9); }
-  .pillar-photo::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(150deg, rgba(7,29,63,.38) 0%, rgba(3,13,30,.22) 55%, rgba(7,29,63,.32) 100%);
-    mix-blend-mode: multiply; pointer-events: none;
-  }
+  /* Duotone photo treatment — tones the image into the site's own navy/sky
+     palette via the shared SVG filter, instead of a full-color photo with
+     an overlay fighting it. */
+  .pillar-photo { aspect-ratio: 16 / 10; position: relative; overflow: hidden; background: var(--navy-mid); }
+  .pillar-photo :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; filter: url(#duotone); }
 
   .pillar-body { padding: 32px 40px 42px; display: flex; flex-direction: column; flex: 1; }
   .pillar-tag {
     font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; letter-spacing: .08em;
-    text-transform: uppercase; color: var(--navy);
+    text-transform: uppercase; color: var(--tag-blue);
+  }
+  .audience-tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--steel); margin-left: 10px;
   }
   .pillar-card h3 { font-size: 24px; font-weight: 600; color: var(--navy); line-height: 1.32; margin: 14px 0 16px; }
   .pillar-card p { font-size: 17px; color: var(--text-mid); line-height: 1.68; margin-bottom: 20px; }
@@ -216,23 +267,33 @@ import olivierClimbing from '../assets/images/olivier-climbing.jpg';
   .subnote-link { color: var(--navy); font-weight: 600; white-space: nowrap; }
   @media (max-width: 860px) { .pillar-grid { grid-template-columns: 1fr; } }
 
-  /* METHOD TEASER */
-  .method { background: var(--navy-deep); padding: 88px 0; }
-  .method h2 { font-size: clamp(28px, 4vw, 42px); margin: 12px 0 20px; }
+  /* METHOD */
+  .method { background: var(--navy-deep); padding: 92px 0; position: relative; overflow: hidden; }
+  .method h2 { font-size: clamp(28px, 4vw, 42px); color: #fff; line-height: 1.16; margin: 12px 0 20px; max-width: 20ch; }
   .method h2 em { font-style: normal; color: var(--sky-bright); }
-  .method-lead { font-size: 17px; color: #B8CBDE; max-width: 62ch; line-height: 1.65; margin-bottom: 28px; }
-  .method-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+  .method-lead { font-size: 17px; color: #B8CBDE; max-width: 62ch; line-height: 1.65; margin-bottom: 40px; }
+  .method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 36px; }
+  .method-card {
+    border: 1px solid rgba(127,176,217,.22); border-radius: 14px;
+    padding: 26px 26px 24px; background: rgba(13,37,72,.45);
+  }
+  .method-card h4 { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .method-card p { font-size: 14.5px; color: #9FB6CC; line-height: 1.55; }
+  @media (max-width: 720px) { .method-grid { grid-template-columns: 1fr; } }
+  .method-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
   .method-tags span {
     font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .04em;
     color: var(--sky-bright); border: 1px solid rgba(127,176,217,.35); border-radius: 100px;
     padding: 7px 16px;
   }
-  .method-cta { color: var(--sky-bright) !important; }
+  .method-close { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .method-close .punch { font-size: clamp(17px, 2vw, 20px); color: var(--sky-bright); max-width: 44ch; line-height: 1.5; font-weight: 300; }
 
   /* BEHIND HIGHER GROUND */
   .founder { background: var(--paper); padding: 92px 0; border-top: 1px solid var(--line); }
   .founder-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 52px; align-items: center; }
   .founder-photo-inner { aspect-ratio: 4 / 5; border-radius: 16px; }
+  .founder-photo-inner :global(img) { filter: none; }
   .founder-text h2 { font-size: clamp(27px, 3.7vw, 37px); color: var(--navy); margin: 12px 0 22px; }
   .founder-text p { color: var(--text-mid); font-size: 17.5px; line-height: 1.72; margin-bottom: 18px; }
   .founder-text p strong { color: var(--navy); font-weight: 600; }

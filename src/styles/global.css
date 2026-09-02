@@ -21,6 +21,7 @@
   --text-mid: #3A5068;
   --text-lt: #6A829C;
   --line: #DBE5EF;
+  --tag-blue: #1B5FA8;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
