@@ -5,7 +5,7 @@ import heroRidge from '../assets/images/hero-ridge.jpg';
 import climberRidge from '../assets/images/climber-ridge.jpg';
 import olivierKeynote from '../assets/images/olivier-keynote.jpg';
 import olivierClimbing from '../assets/images/olivier-climbing.jpg';
-import amaDablamPeak from '../assets/images/ama-dablam-peak.jpg';
+import amaDablamDawn from '../assets/images/ama-dablam-dawn.jpg';
 ---
 
 <BaseLayout
@@ -13,7 +13,9 @@ import amaDablamPeak from '../assets/images/ama-dablam-peak.jpg';
   description="Higher Ground — Olivier Gil's mountain coaching practice, for objectives from your first 6,000m peak to no-oxygen 8,000ers, and for companies building that same readiness into their leadership."
   lang="en"
 >
-  <!-- Shared duotone filter (navy -> sky-bright), used on the pillar photos -->
+  <!-- Shared duotone filters. "duotone" (navy -> sky-bright) is used on the
+       pillar photos. "duotone-light" (navy-mid -> sky-bright) is a softer
+       version for About — same blue family, visibly less dark. -->
   <svg width="0" height="0" style="position:absolute">
     <filter id="duotone" color-interpolation-filters="sRGB">
       <feColorMatrix type="matrix" values="
@@ -25,6 +27,18 @@ import amaDablamPeak from '../assets/images/ama-dablam-peak.jpg';
         <feFuncR type="table" tableValues="0.0275 0.6549"/>
         <feFuncG type="table" tableValues="0.1137 0.8039"/>
         <feFuncB type="table" tableValues="0.2471 0.9255"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="duotone-light" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="
+        0.33 0.33 0.33 0 0
+        0.33 0.33 0.33 0 0
+        0.33 0.33 0.33 0 0
+        0    0    0    1 0"/>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="0.0510 0.6549"/>
+        <feFuncG type="table" tableValues="0.1451 0.8039"/>
+        <feFuncB type="table" tableValues="0.2824 0.9255"/>
       </feComponentTransfer>
     </filter>
   </svg>
@@ -105,11 +119,13 @@ import amaDablamPeak from '../assets/images/ama-dablam-peak.jpg';
             <h3>You want your people ready when it counts.</h3>
             <p>
               The Ridgeline is a keynote for companies and leadership teams,
-              drawn from real decisions above 6,000 metres. High-altitude
-              objectives strip leadership down to its essentials: you prepare
-              properly or you don't summit, you read the conditions honestly
-              or you get hurt, you make the hard call — to push or to turn —
-              when it matters, not after.
+              drawn from real decisions above 6,000 metres.
+            </p>
+            <p>
+              High-altitude objectives strip leadership down to its
+              essentials: you prepare properly or you don't summit, you read
+              the conditions honestly or you get hurt, you make the hard call
+              — to push or to turn — when it matters, not after.
             </p>
             <p>
               The same discipline that decides an expedition decides how a
@@ -150,26 +166,25 @@ import amaDablamPeak from '../assets/images/ama-dablam-peak.jpg';
     </div>
   </section>
 
-  <!-- AMA DABLAM 27 -->
+  <!-- AMA DABLAM 27 — full-bleed, same pattern as the hero, text on the right -->
   <section class="expedition">
-    <div class="expedition-grid">
-      <div class="expedition-photo">
-        <Image src={amaDablamPeak} alt="Ama Dablam's summit pyramid rising through cloud" width={900} quality={78} />
-      </div>
+    <div class="expedition-media">
+      <Image src={amaDablamDawn} alt="Ama Dablam's summit pyramid at dawn" class="expedition-img" width={1920} quality={78} />
+      <div class="expedition-scrim"></div>
+    </div>
+    <div class="wrap expedition-in">
       <div class="expedition-text">
-        <div class="wrap-inner">
-          <div class="eyebrow" style="color:var(--sky)">Project Ama Dablam 2027</div>
-          <h2 class="serif">Ama Dablam: <em>not a summit story, a team story.</em></h2>
-          <p class="expedition-body">
-            Ama Dablam, 6,812m, Nepal — Olivier's next objective. But the story
-            worth telling isn't the ascent. It's how a team gets built: the
-            first calls, the training weekends, the doubts, the progress —
-            documented from day one, because how ordinary people with jobs
-            and families accomplish extraordinary things is worth showing
-            honestly, not just the summit day.
-          </p>
-          <a href="/journal" class="btn btn-primary">Follow the journal →</a>
-        </div>
+        <div class="eyebrow" style="color:var(--sky)">Project Ama Dablam 2027</div>
+        <h2 class="serif">Ama Dablam: <em>not a summit story, a team story.</em></h2>
+        <p class="expedition-body">
+          Ama Dablam, 6,812m, Nepal — Olivier's next objective. But the story
+          worth telling isn't the ascent. It's how a team gets built: the
+          first calls, the training weekends, the doubts, the progress —
+          documented from day one, because how ordinary people with jobs
+          and families accomplish extraordinary things is worth showing
+          honestly, not just the summit day.
+        </p>
+        <a href="/journal" class="btn btn-primary">Follow the journal →</a>
       </div>
     </div>
   </section>
@@ -296,35 +311,34 @@ import amaDablamPeak from '../assets/images/ama-dablam-peak.jpg';
   .ars-cta:hover { background: var(--sky); color: var(--navy-deep); }
   @media (max-width: 800px) { .ars-grid { grid-template-columns: 1fr; gap: 26px; } }
 
-  /* AMA DABLAM 27 — photo left (heavy dark navy tint, near-opaque), text right */
-  .expedition { background: var(--navy-deep); color: #fff; }
-  .expedition-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
-  .expedition-photo { position: relative; overflow: hidden; }
-  .expedition-photo :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .expedition-photo::after {
-    content: ""; position: absolute; inset: 0;
-    background: var(--navy-deep); opacity: .82; mix-blend-mode: multiply; pointer-events: none;
+  /* AMA DABLAM 27 — full-bleed photo, same pattern as the hero but mirrored
+     (text right, scrim strongest on the right) for alternation. */
+  .expedition {
+    position: relative; overflow: hidden;
+    min-height: 560px; display: flex; align-items: center;
+    background: var(--navy-deep);
   }
-  .expedition-text { display: flex; align-items: center; padding: 72px 0; }
-  .expedition-text .wrap-inner { padding: 0 48px; max-width: 560px; }
-  .expedition h2 { font-size: clamp(27px, 3.4vw, 38px); line-height: 1.24; margin: 12px 0 22px; }
+  .expedition-media { position: absolute; inset: 0; z-index: 1; }
+  .expedition-media .expedition-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .expedition-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(260deg, rgba(3,13,30,.88) 0%, rgba(3,13,30,.58) 46%, rgba(7,29,63,.22) 100%);
+  }
+  .expedition-in { position: relative; z-index: 2; padding: 88px 32px; width: 100%; display: flex; justify-content: flex-end; }
+  .expedition-text { max-width: 520px; text-align: left; }
+  .expedition h2 { font-size: clamp(27px, 3.4vw, 38px); color: #fff; line-height: 1.24; margin: 12px 0 22px; }
   .expedition h2 em { font-style: normal; color: var(--sky-bright); }
   .expedition-body { font-size: 16.5px; color: #C8D6E5; font-weight: 300; line-height: 1.68; margin-bottom: 28px; }
-  @media (max-width: 860px) {
-    .expedition-grid { grid-template-columns: 1fr; }
-    .expedition-photo { aspect-ratio: 16 / 10; }
-    .expedition-text .wrap-inner { padding: 40px 32px; max-width: none; }
+  @media (max-width: 760px) {
+    .expedition-in { justify-content: flex-start; }
+    .expedition-text { max-width: none; }
   }
 
   /* BEHIND HIGHER GROUND */
   .founder { background: var(--paper); padding: 92px 0; border-top: 1px solid var(--line); }
   .founder-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 52px; align-items: center; }
   .founder-photo-inner { aspect-ratio: 4 / 5; border-radius: 16px; position: relative; overflow: hidden; }
-  .founder-photo-inner :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .founder-photo-inner::after {
-    content: ""; position: absolute; inset: 0;
-    background: var(--navy); opacity: .24; mix-blend-mode: multiply; pointer-events: none;
-  }
+  .founder-photo-inner :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; filter: url(#duotone-light); }
   .founder-text h2 { font-size: clamp(27px, 3.7vw, 37px); color: var(--navy); margin: 12px 0 22px; }
   .founder-text p { color: var(--text-mid); font-size: 17.5px; line-height: 1.72; margin-bottom: 18px; }
   .founder-text p strong { color: var(--navy); font-weight: 600; }
