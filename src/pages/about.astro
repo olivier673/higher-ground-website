@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import execPhoto from '../assets/images/olivier-climbing-about.webp';
+---
+
+<BaseLayout
+  title="About"
+  description="Olivier Gil — senior executive, mountaineer and alpinist, UESCA-certified altitude coach. Founder of Higher Ground."
+  lang="en"
+>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-in">
+      <div class="eyebrow" style="color:var(--sky)">Behind Higher Ground</div>
+      <h1>Olivier Gil</h1>
+      <p class="hero-sub">
+        Senior executive. Mountaineer and alpinist. Altitude coach.<br />
+        Two demanding worlds — one discipline.
+      </p>
+      <div class="hero-locs">
+        <span>Barcelona</span><span class="dot">·</span><span>English · French · Spanish</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- TWO WORLDS -->
+  <section class="two-worlds">
+    <div class="wrap">
+      <div class="two-grid">
+        <div class="two-text">
+          <div class="eyebrow">Two worlds. One person.</div>
+          <h2 class="serif">The same discipline — in the boardroom and on the mountain.</h2>
+          <p>For over fifteen years, I have operated at the intersection of two demanding worlds. Professionally, I have spent my career building businesses, leading international teams, and creating new sources of growth — across industries, in complex environments, often at significant scale.</p>
+          <p>In parallel, the mountains have never stopped. From the first technical ascents to solo efforts and high-altitude expeditions, the same questions keep coming up on both sides: <strong>how do you prepare when the stakes are real? How do you perform when conditions change? How do you make the hard call, and live with it?</strong></p>
+          <p>Higher Ground is where those two things converge — not as a metaphor, but as a genuinely shared discipline. The same rigour that structures a business transformation structures a high-altitude preparation. The same honesty that makes a team decide to turn around makes a leadership team trust each other under pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROFESSIONAL WORLD -->
+  <section class="exec">
+    <div class="exec-media">
+      <Image src={execPhoto} alt="Olivier climbing in the mountains" class="exec-bg" widths={[960, 1440, 1920]} sizes="100vw" quality={80} />
+      <div class="exec-scrim"></div>
+    </div>
+    <div class="wrap exec-in">
+      <div class="exec-text">
+        <div class="eyebrow">The professional world</div>
+        <h2 class="serif">Building at scale.</h2>
+        <p>My professional career has been built around one consistent thread: finding an opportunity, working out the business model behind it, bringing together the right people and capabilities, and making it work at scale.</p>
+        <p>I have led sales and commercial businesses, built new revenue models from scratch, managed large-scale transformations, and worked across M&amp;A and post-merger integration — mostly in private equity-backed environments, across multiple industries and international markets.</p>
+        <p>What I enjoy most is building: the early ambiguity, the architecture of a model, the execution that turns an idea into something real. A mindset that translates directly to the mountains.</p>
+        <a href="https://www.linkedin.com/in/olivier-gil/" target="_blank" rel="noopener" class="exec-li">Full professional background on LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MOUNTAIN WORLD -->
+  <section class="mountains">
+    <div class="wrap">
+      <div class="eyebrow">The mountain world</div>
+      <h2 class="serif">From the Pyrenees to the Himalaya.</h2>
+      <p class="mtn-intro">The mountains started as a passion and progressively became something more serious — a domain where preparation, judgment and commitment matter as much as they do in any high-stakes professional environment.</p>
+      <div class="arc">
+        <div class="arc-step">
+          <div class="arc-marker"></div>
+          <div>
+            <h4>The Pyrenees</h4>
+            <p>The beginning — technical terrain, long days, learning to read conditions and manage effort over distance.</p>
+          </div>
+        </div>
+        <div class="arc-step">
+          <div class="arc-marker"></div>
+          <div>
+            <h4>The Alps — 4,000m objectives</h4>
+            <p>Moving into technical alpine terrain — mixed routes, glaciated ridges, increasingly committed objectives.</p>
+          </div>
+        </div>
+        <div class="arc-step">
+          <div class="arc-marker"></div>
+          <div>
+            <h4>Mont Blanc — solo, one push · 2024</h4>
+            <p>From the valley to the summit and back, alone, in a single effort. A test of preparation as much as fitness.</p>
+          </div>
+        </div>
+        <div class="arc-step">
+          <div class="arc-marker"></div>
+          <div>
+            <h4>Karakoram expedition · 2025</h4>
+            <p>A first high-altitude expedition — acclimatisation, logistics, sustained effort at altitude, team dynamics over weeks.</p>
+          </div>
+        </div>
+        <div class="arc-step">
+          <div class="arc-marker"></div>
+          <div>
+            <h4>Creation of Higher Ground · 2026</h4>
+            <p>Turning fifteen years of mountains and preparation into a coaching practice, built around the Altitude Readiness System.</p>
+          </div>
+        </div>
+        <div class="arc-step">
+          <div class="arc-marker"></div>
+          <div>
+            <h4>Design of The Ridgeline Keynote · 2026</h4>
+            <p>Distilling the leadership lessons from real decisions above 6,000 metres into a keynote for companies and leadership teams.</p>
+          </div>
+        </div>
+        <div class="arc-step arc-current">
+          <div class="arc-marker"></div>
+          <div>
+            <h4>Ama Dablam · Nepal · 2027</h4>
+            <p>The next objective. 6,812m, Himalaya — a serious technical mountain, and the current live project of Higher Ground.</p>
+            <a href="/journal" class="arc-link">Follow the preparation →</a>
+          </div>
+        </div>
+      </div>
+      <p class="mtn-note">Over the years, the preparation has become almost as interesting as the ascent itself. Training, physiology, nutrition, altitude and mental readiness — these became a genuine area of practice, not just personal habit. That is what Higher Ground is built from.</p>
+    </div>
+  </section>
+
+  <!-- THE COACHING PRACTICE -->
+  <section class="hg">
+    <div class="wrap hg-grid">
+      <div class="hg-text">
+        <div class="eyebrow">Higher Ground</div>
+        <h2 class="serif">The coaching practice.</h2>
+        <p>Higher Ground was built to help mountain athletes — and the teams and leaders who share the same mindset — prepare with more clarity, structure and purpose.</p>
+        <p>I am a <strong>UESCA-certified coach</strong>, and the Higher Ground methodology is grounded in the reference literature of alpinism — <em>Training for the New Alpinism</em> and <em>Training for the Uphill Athlete</em> by Steve House and Scott Johnston — with pre-acclimatisation protocols developed in partnership with The Altitude Center in London.</p>
+        <p>The method is currently proven live with Simon Niklaus's no-oxygen ascent of Manaslu (8,163m) — the first step of a 14×8,000m no-oxygen project.</p>
+        <a href="/method" class="btn-quiet">The Higher Ground Method →</a>
+      </div>
+      <div class="hg-creds">
+        <div class="cred">
+          <h4>UESCA-certified</h4>
+          <p>Ultrarunning coaching curriculum — applied to altitude and mountain objectives.</p>
+        </div>
+        <div class="cred">
+          <h4>Reference literature</h4>
+          <p>House &amp; Johnston's two foundational works on mountain athlete preparation.</p>
+        </div>
+        <div class="cred">
+          <h4>The Altitude Center</h4>
+          <p>Pre-acclimatisation protocols developed in partnership with London's leading altitude specialists.</p>
+        </div>
+        <div class="cred">
+          <h4>Barcelona · international</h4>
+          <p>Working with athletes and organisations in English, French and Spanish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-in">
+      <div class="eyebrow" style="color:var(--sky)">Start the conversation</div>
+      <h2 class="serif">Two ways to work together.</h2>
+      <div class="cta-doors">
+        <div class="cta-door">
+          <p class="door-desc">For athletes preparing a serious mountain or altitude objective — from a first 6,000m peak to an 8,000er without supplemental oxygen.</p>
+          <a href="/enquire" class="btn btn-primary">Let's talk</a>
+        </div>
+        <div class="cta-door">
+          <p class="door-desc">The Ridgeline is a 45-minute keynote for leadership teams, drawn from real decisions above 6,000 metres — and what they teach about performing under pressure.</p>
+          <a href="/leadership" class="btn btn-ghost">Enquire about The Ridgeline</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .hero { background: var(--navy-deep); color: #fff; padding: 96px 0 84px; }
+  .hero h1 { color: #fff; letter-spacing: -.02em; margin: 16px 0; font-family: 'IBM Plex Sans', sans-serif; font-size: clamp(44px, 7vw, 76px); font-weight: 600; line-height: 1.04; }
+  .hero-sub { color: #c8d6e5; max-width: 48ch; font-size: clamp(17px, 2vw, 20px); font-weight: 300; line-height: 1.6; }
+  .hero-locs { letter-spacing: .06em; color: var(--steel-lt); display: flex; align-items: center; gap: 10px; margin-top: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
+  .dot { opacity: .4; }
+
+  /* TWO WORLDS */
+  .two-worlds { background: var(--paper); padding: 92px 0; }
+  .two-grid { display: grid; grid-template-columns: 1fr; align-items: center; gap: 56px; }
+  .two-text { max-width: 820px; }
+  .two-text h2 { color: var(--navy); margin: 14px 0 22px; font-size: clamp(26px, 3.4vw, 34px); line-height: 1.18; }
+  .two-text p { color: var(--text-mid); margin-bottom: 16px; font-size: 16.5px; line-height: 1.7; }
+  .two-text p strong { color: var(--navy); font-weight: 600; }
+
+  /* THE PROFESSIONAL WORLD — full-bleed photo with smooth navy→photo transition */
+  .exec { background: var(--navy-deep); display: flex; align-items: center; min-height: 480px; padding: 92px 0; position: relative; overflow: hidden; }
+  .exec-media { z-index: 1; position: absolute; inset: 0; width: 100%; overflow: hidden; }
+  .exec-media .exec-bg { object-fit: cover; object-position: center center; width: 100%; height: 100%; display: block; transform: scale(1.22) translate(32%, -2%); }
+  .exec-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, #030D1E 0%, #030D1E 40%, transparent 60%); }
+  .exec-in { z-index: 2; position: relative; width: 100%; }
+  .exec-text { max-width: 580px; }
+  .exec-text h2 { color: #fff; margin: 14px 0 22px; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.16; }
+  .exec-text p { color: #c8d6e5; margin-bottom: 16px; font-size: 16.5px; font-weight: 300; line-height: 1.7; }
+  .exec-li { letter-spacing: .06em; color: var(--sky-bright); border-bottom: 1px solid rgba(127,176,217,.4); margin-top: 8px; padding-bottom: 2px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; transition: border-color .2s; display: inline-block; }
+  .exec-li:hover { border-color: var(--sky-bright); }
+
+  /* THE MOUNTAIN WORLD */
+  .mountains { background: var(--ice); color: var(--text); padding: 92px 0; }
+  .mountains .eyebrow { color: var(--steel); }
+  .mountains h2 { color: var(--navy); margin: 14px 0 18px; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.16; }
+  .mtn-intro { color: var(--text-mid); max-width: 68ch; margin-bottom: 44px; font-size: 16.5px; font-weight: 300; line-height: 1.7; }
+  .arc { display: flex; flex-direction: column; max-width: 760px; }
+  .arc-step { display: grid; grid-template-columns: 16px 1fr; align-items: start; gap: 22px; padding: 20px 0; border-top: 1px solid var(--line); }
+  .arc-step:last-child { border-bottom: 1px solid var(--line); }
+  .arc-marker { background: #a7bacd; border-radius: 50%; flex-shrink: 0; width: 8px; height: 8px; margin-top: 6px; }
+  .arc-current .arc-marker { background: var(--tag-blue); box-shadow: 0 0 8px rgba(27,95,168,.3); }
+  .arc-step h4 { color: var(--navy); margin-bottom: 5px; font-size: 16.5px; font-weight: 600; line-height: 1.3; }
+  .arc-current h4 { color: var(--tag-blue); }
+  .arc-step p { color: var(--text-mid); margin-bottom: 8px; font-size: 14px; line-height: 1.58; }
+  .arc-link { color: var(--tag-blue); font-size: 13.5px; font-weight: 600; }
+  .mtn-note { color: var(--text-mid); border-left: 2px solid var(--tag-blue); max-width: 68ch; margin-top: 36px; padding-left: 22px; font-size: 16.5px; font-weight: 300; line-height: 1.7; }
+
+  /* THE COACHING PRACTICE */
+  .hg { background: var(--navy-deep); color: #fff; padding: 92px 0; }
+  .hg .eyebrow { color: var(--sky); }
+  .hg-grid { display: grid; grid-template-columns: 1.2fr .8fr; align-items: start; gap: 56px; }
+  .hg-text h2 { color: #fff; margin: 14px 0 22px; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.16; }
+  .hg-text p { color: #c8d6e5; margin-bottom: 16px; font-size: 16.5px; line-height: 1.7; }
+  .hg-text p strong { color: #fff; font-weight: 600; }
+  .hg-text p em { color: #fff; font-style: normal; font-weight: 600; }
+  .hg-text .btn-quiet { color: var(--sky-bright); border-bottom-color: rgba(127,176,217,.4); }
+  .hg-text .btn-quiet:hover { color: #fff; border-color: #fff; }
+  .hg-creds { display: flex; flex-direction: column; gap: 14px; }
+  .cred { border: 1px solid rgba(127,176,217,.18); background: var(--navy-mid); border-radius: 14px; padding: 22px 24px; }
+  .cred h4 { color: #fff; margin-bottom: 6px; font-size: 15.5px; font-weight: 600; }
+  .cred p { color: #9fb6cc; font-size: 13.5px; line-height: 1.55; }
+
+  /* CTA */
+  .cta { background: var(--navy); color: #fff; padding: 92px 0; }
+  .cta-in { text-align: center; max-width: 860px; margin: 0 auto; padding: 0 32px; }
+  .cta h2 { margin: 14px 0 36px; font-size: clamp(28px, 4vw, 40px); }
+  .cta-doors { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: center; }
+  .cta-door { display: flex; flex-direction: column; align-items: center; background: #0d2548; border: 1px solid rgba(127,176,217,.22); border-radius: 16px; padding: 28px 28px 24px; }
+  .door-desc { color: #b8cbde; text-align: center; flex: 1; margin-bottom: 22px; font-size: 15px; line-height: 1.62; }
+
+  @media (max-width: 860px) {
+    .exec-media .exec-bg { transform: none; object-position: 22% 40%; }
+    .exec-scrim { background: linear-gradient(90deg, #030d1e 0%, rgba(3,13,30,.9) 40%, rgba(3,13,30,.7) 62%, rgba(3,13,30,.4) 100%); }
+    .hg-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .cta-doors { grid-template-columns: 1fr; }
+  }
+</style>

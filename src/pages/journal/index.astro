@@ -1,22 +1,301 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import amaDablamDawn from '../../assets/images/ama-dablam-dawn.jpg';
 
-// Pulls every English, non-draft entry automatically — this list needs
-// no manual updates as new Markdown files are added.
 const entries = (await getCollection('journal'))
   .filter((e) => e.data.lang === 'en' && !e.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const hasEntries = entries.length > 0;
 ---
 
-<BaseLayout title="Journal" lang="en">
-  <h1>Journal</h1>
-  <ul>
-    {entries.map((entry) => (
-      <li>
-        <a href={`/journal/${entry.id}`}>{entry.data.title}</a>
-        <span> — {entry.data.date.toDateString()}</span>
-      </li>
-    ))}
-  </ul>
+<BaseLayout
+  title="Ama Dablam 2027"
+  description="Project Ama Dablam 2027 — not a summit story, a team story. The live preparation journal of Higher Ground's current mountain objective."
+  lang="en"
+>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-media">
+      <Image src={amaDablamDawn} alt="Ama Dablam's summit pyramid at dawn, Nepal" class="hero-img" width={1920} quality={78} loading="eager" fetchpriority="high" />
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="wrap hero-in">
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        Live project · Autumn 2027
+      </div>
+      <div class="eyebrow" style="color:var(--sky)">Project Ama Dablam 2027</div>
+      <h1>Ama Dablam 2027</h1>
+      <p class="hero-keyline"><em>Not a summit story. A team story.</em></p>
+      <p class="hero-sub">6,812m · Nepal · Himalaya — documented from the first call to departure day.</p>
+    </div>
+  </header>
+
+  <!-- THE WHY + SPIRIT -->
+  <section class="why">
+    <div class="wrap">
+      <div class="why-grid">
+        <div class="why-lead">
+          <div class="eyebrow">Why this, why now</div>
+          <h2 class="serif">Where everything converges.</h2>
+          <p>
+            Every method Higher Ground teaches — whether it's preparing an athlete for a
+            no-oxygen ascent or helping a leadership team perform under real pressure —
+            is something Olivier applies to his own objectives first. Ama Dablam is that,
+            live and documented.
+          </p>
+          <p>
+            The story that interests us isn't the one about the summit. It's the one about
+            building a team. How people with jobs, families and full lives organise
+            themselves to reach an objective that looks out of reach. The answer isn't
+            exceptional talent — it's preparation, clear roles, and the right people
+            around a shared commitment.
+          </p>
+          <p>
+            The summit becomes almost a consequence of everything built in the twelve
+            months before it.
+          </p>
+        </div>
+        <div class="why-principles">
+          <div class="eyebrow">The four principles</div>
+          <div class="principle">
+            <span class="pnum">01</span>
+            <div>
+              <h4>Prepare before you climb</h4>
+              <p>The summit is built in the months before. Every member commits to arriving ready.</p>
+            </div>
+          </div>
+          <div class="principle">
+            <span class="pnum">02</span>
+            <div>
+              <h4>Be autonomous</h4>
+              <p>Each person is responsible for their preparation and their decisions. A successful expedition is built from autonomous people who know how to work together.</p>
+            </div>
+          </div>
+          <div class="principle">
+            <span class="pnum">03</span>
+            <div>
+              <h4>Bring something to the group</h4>
+              <p>We're not looking for more people. We're looking for the right complement — skills, experience, character.</p>
+            </div>
+          </div>
+          <div class="principle">
+            <span class="pnum">04</span>
+            <div>
+              <h4>Decide with humility</h4>
+              <p>The mountain always has the last word. The summit is an objective. The return is a priority.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNAL + INSTAGRAM merged -->
+  <section class="journal">
+    <div class="wrap">
+      <div class="journal-head">
+        <div class="eyebrow">The preparation journal</div>
+        <h2 class="serif">The story, month by month.</h2>
+        <p>
+          One article per month — from the first team selection in October 2026 to
+          departure day in autumn 2027. The honest account of how a team gets ready
+          for something like this. And between entries, follow the preparation live
+          on Instagram.
+        </p>
+      </div>
+
+      {hasEntries ? (
+        <div class="entries">
+          {entries.map((entry) => (
+            <a href={`/journal/${entry.id}`} class="entry-card">
+              <div class="entry-date">
+                {entry.data.date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
+              </div>
+              <h3>{entry.data.title}</h3>
+              {entry.data.description && <p class="entry-desc">{entry.data.description}</p>}
+              <span class="entry-link">Read →</span>
+            </a>
+          ))}
+          <a href="https://www.instagram.com/olivier.higherground/" target="_blank" rel="noopener" class="ig-band">
+            <div class="ig-band-left">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
+                <circle cx="12" cy="12" r="4.6"/>
+                <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+              </svg>
+              <div>
+                <span class="ig-label">Follow the preparation live</span>
+                <span class="ig-handle">@olivier.higherground</span>
+              </div>
+            </div>
+            <span class="ig-cta">Open Instagram →</span>
+          </a>
+        </div>
+      ) : (
+        <div class="entries">
+          <div class="journal-empty">
+            <div class="empty-marker">
+              <span class="empty-dot"></span>
+              <span class="empty-label">First entry — October 2026</span>
+            </div>
+            <p>Preparation starts now. The first journal entry will document how the team comes together — the selection, the first meeting, the first training plan.</p>
+          </div>
+          <a href="https://www.instagram.com/olivier.higherground/" target="_blank" rel="noopener" class="ig-band">
+            <div class="ig-band-left">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
+                <circle cx="12" cy="12" r="4.6"/>
+                <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+              </svg>
+              <div>
+                <span class="ig-label">Follow the preparation live between entries</span>
+                <span class="ig-handle">@olivier.higherground</span>
+              </div>
+            </div>
+            <span class="ig-cta">Open Instagram →</span>
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team">
+    <div class="wrap">
+      <div class="eyebrow">The expedition team</div>
+      <h2 class="serif">La Cordée</h2>
+      <p class="team-sub">The rope team · Ama Dablam 2027</p>
+      <p class="team-intro">The expedition is run through Seven Summit Treks, one of the most recognised agencies in the Himalaya — experienced guides and Sherpas, solid camp logistics, fixed ropes, and rigorous safety management.</p>
+      <div class="team-grid">
+        <div class="team-member">
+          <h4>Olivier Gil</h4>
+          <span class="team-role">Preparation lead</span>
+          <p>Founder of Higher Ground, UESCA-certified altitude coach. Senior executive, alpinist with ascents across the Pyrenees, the Alps and the Pamir. Ama Dablam is where the coaching meets its own test.</p>
+          <a href="/about" class="team-link">More about Olivier →</a>
+        </div>
+        <div class="team-member">
+          <h4>Louana</h4>
+          <span class="team-role">Project initiator · Organisation & coordination</span>
+          <p>At the origin of the expedition. Louana carries the project — team formation, agency relations, logistics and group cohesion.</p>
+        </div>
+        <div class="team-member team-open">
+          <h4>Team selection</h4>
+          <span class="team-role">Summer–Autumn 2026</span>
+          <p>We're not looking for two more people. We're looking for the last two pieces of the puzzle — complementary profiles who bring something specific to the group.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners">
+    <div class="narrow">
+      <div class="eyebrow">Partners</div>
+      <h2 class="serif">Join an adventure already in motion.</h2>
+      <p>
+        This project may interest partners looking for something other than another
+        summit photo — a sincere story built on preparation, autonomy and collective
+        effort, with authentic content produced over twelve months.
+      </p>
+      <p>
+        If you want to be associated with an adventure documented from day one —
+        not just a logo on a summit image — get in touch.
+      </p>
+      <a href="/enquire" class="btn btn-primary">Get in touch</a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* HERO */
+  .hero { position: relative; overflow: hidden; min-height: 560px; display: flex; align-items: center; background: var(--navy-deep); }
+  .hero-media { position: absolute; inset: 0; z-index: 1; }
+  .hero-media .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(260deg, rgba(3,13,30,.88) 0%, rgba(3,13,30,.58) 46%, rgba(7,29,63,.22) 100%);
+  }
+  .hero-in { position: relative; z-index: 2; padding: 88px 32px; width: 100%; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+  .live-badge {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--sky-bright); border: 1px solid rgba(127,176,217,.4); border-radius: 100px;
+    padding: 8px 18px; margin-bottom: 18px;
+  }
+  .live-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--sky-bright); box-shadow: 0 0 10px var(--sky-bright); animation: pulse 2s ease-in-out infinite; flex-shrink: 0; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+  .hero h1 { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; color: #fff; font-size: clamp(42px, 7vw, 78px); line-height: 1.04; letter-spacing: -.02em; margin: 14px 0 10px; }
+  .hero-keyline { font-size: clamp(20px, 2.8vw, 28px); color: var(--sky-bright); font-weight: 300; font-style: italic; margin-bottom: 14px; }
+  .hero-sub { font-size: clamp(14px, 1.6vw, 16px); color: #C8D6E5; font-weight: 300; }
+
+  /* WHY + SPIRIT */
+  .why { padding: 92px 0; background: var(--paper); }
+  .why-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: start; }
+  .why-lead h2 { font-size: clamp(26px, 3.6vw, 36px); color: var(--navy); line-height: 1.18; margin: 14px 0 22px; }
+  .why-lead p { font-size: 16.5px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
+  .why-principles { display: flex; flex-direction: column; }
+  .principle { display: grid; grid-template-columns: 32px 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid var(--line); }
+  .principle:last-child { border-bottom: 1px solid var(--line); }
+  .pnum { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .06em; color: var(--sky); padding-top: 2px; }
+  .principle h4 { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+  .principle p { font-size: 14px; color: var(--text-mid); line-height: 1.55; }
+  @media (max-width: 860px) { .why-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* JOURNAL — merged with Instagram */
+  .journal { background: var(--ice); padding: 92px 0; }
+  .journal-head { max-width: 860px; margin-bottom: 44px; }
+  .journal-head h2 { font-size: clamp(26px, 3.6vw, 36px); color: var(--navy); margin: 12px 0 14px; }
+  .journal-head p { font-size: 16.5px; color: var(--text-mid); line-height: 1.65; }
+  .entries { display: flex; flex-direction: column; gap: 14px; }
+  .entry-card {
+    display: block; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px 32px; text-decoration: none; transition: transform .2s, box-shadow .2s;
+  }
+  .entry-card:hover { transform: translateY(-2px); box-shadow: 0 12px 36px -18px rgba(7,29,63,.22); }
+  .entry-date { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--sky); margin-bottom: 8px; }
+  .entry-card h3 { font-size: 21px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .entry-desc { font-size: 14.5px; color: var(--text-mid); line-height: 1.55; margin-bottom: 12px; }
+  .entry-link { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .journal-empty { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 32px 36px; }
+  .empty-marker { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .empty-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sky); flex-shrink: 0; }
+  .empty-label { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--sky); }
+  .journal-empty p { font-size: 15.5px; color: var(--text-mid); line-height: 1.65; }
+
+  /* Instagram band — prominent, always visible */
+  .ig-band {
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    background: var(--navy-deep); border-radius: 16px; padding: 26px 32px;
+    text-decoration: none; transition: background .2s;
+  }
+  .ig-band:hover { background: var(--navy-mid); }
+  .ig-band-left { display: flex; align-items: center; gap: 16px; color: #fff; }
+  .ig-band-left svg { flex-shrink: 0; color: var(--sky-bright); }
+  .ig-label { display: block; font-size: 13.5px; color: #B8CBDE; letter-spacing: .01em; margin-bottom: 4px; }
+  .ig-handle { display: block; font-size: 19px; font-weight: 600; color: #fff; }
+  .ig-cta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--sky-bright); white-space: nowrap; border-bottom: 1px solid rgba(127,176,217,.4); padding-bottom: 2px; }
+
+  /* TEAM */
+  .team { padding: 92px 0; background: var(--paper); }
+  .team h2 { font-size: clamp(32px, 5vw, 52px); color: var(--navy); margin: 12px 0 4px; letter-spacing: -.01em; }
+  .team-sub { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--steel); margin-bottom: 24px; display: block; }
+  .team-intro { font-size: 16px; color: var(--text-mid); max-width: 72ch; line-height: 1.65; margin-bottom: 44px; }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .team-member { border: 1px solid var(--line); border-radius: 16px; padding: 28px 26px; background: var(--ice); }
+  .team-open { border-style: dashed; background: transparent; }
+  .team-member h4 { font-size: 19px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+  .team-role { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--steel); display: block; margin-bottom: 12px; }
+  .team-member p { font-size: 14px; color: var(--text-mid); line-height: 1.58; margin-bottom: 14px; }
+  .team-link { font-size: 14px; font-weight: 600; color: var(--navy); }
+  @media (max-width: 860px) { .team-grid { grid-template-columns: 1fr; } }
+
+  /* PARTNERS */
+  .partners { background: var(--navy); color: #fff; padding: 88px 0; }
+  .partners h2 { font-size: clamp(26px, 3.6vw, 36px); margin: 12px 0 20px; }
+  .partners p { font-size: 16px; color: #B8CBDE; line-height: 1.65; margin-bottom: 14px; }
+  .partners .btn { margin-top: 10px; }
+</style>

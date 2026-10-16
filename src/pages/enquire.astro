@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// HubSpot form → submitted via the Forms Submissions API so the form can be
+// styled to the site and rendered in either language. The HubSpot form itself
+// (portal 147647326 / form 6245beba…) only stores the lead; its field internal
+// names are language-neutral (email, firstname, lastname, message).
+const HS_PORTAL = '147647326';
+const HS_FORM = '6245beba-6fb2-4454-bd6b-f80bc742770b';
+const MEETINGS_URL = 'https://meetings-eu1.hubspot.com/olivier-gil';
+---
+
+<BaseLayout
+  title="Let's talk"
+  description="Get in touch with Higher Ground — for athletes preparing a serious mountain or altitude objective, and for companies looking at The Ridgeline keynote."
+  lang="en"
+>
+  <section class="enq">
+    <div class="enq-wrap">
+      <div class="eyebrow" style="color:var(--steel)">Start the conversation</div>
+      <h1 class="serif">Let's talk.</h1>
+      <p class="enq-intro">Tell me a little about what you're preparing for — a mountain or altitude objective, or a keynote for your team — and I'll come back to you personally.</p>
+
+      <form id="enquire-form" class="enq-form" novalidate>
+        <div class="enq-row">
+          <div class="enq-field">
+            <label for="firstname">First name</label>
+            <input id="firstname" name="firstname" type="text" autocomplete="given-name" required />
+          </div>
+          <div class="enq-field">
+            <label for="lastname">Last name</label>
+            <input id="lastname" name="lastname" type="text" autocomplete="family-name" required />
+          </div>
+        </div>
+
+        <div class="enq-field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="enq-field">
+          <label for="message">Your objective / message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <!-- honeypot: hidden from humans, catches bots -->
+        <div class="enq-hp" aria-hidden="true">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <label class="enq-consent">
+          <input id="consent" name="consent" type="checkbox" required />
+          <span>I agree that Higher Ground may store my details to respond to my enquiry. See our <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+        </label>
+
+        <button type="submit" class="btn btn-navy enq-submit">Send</button>
+        <p class="enq-error" id="enq-error" hidden>Something went wrong sending your message. Please try again, or book a call directly below.</p>
+      </form>
+
+      <div class="enq-success" id="enq-success" hidden>
+        <h2 class="serif">Thank you — message received.</h2>
+        <p>I'll get back to you personally, usually within a couple of days.</p>
+      </div>
+
+      <div class="enq-alt">
+        <span>Already know you'd like to talk?</span>
+        <a href={MEETINGS_URL} target="_blank" rel="noopener" class="btn-quiet">Book a call directly →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .enq { background: var(--paper); padding: 84px 0 96px; }
+  .enq-wrap { max-width: 640px; margin: 0 auto; padding: 0 32px; }
+  .enq h1 { color: var(--navy); margin: 14px 0 14px; font-size: clamp(32px, 5vw, 48px); line-height: 1.08; }
+  .enq-intro { color: var(--text-mid); font-size: 17px; line-height: 1.7; max-width: 52ch; margin-bottom: 40px; }
+
+  .enq-form { display: flex; flex-direction: column; gap: 20px; }
+  .enq-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .enq-field { display: flex; flex-direction: column; gap: 7px; }
+  .enq-field label { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--steel); }
+  .enq-field input, .enq-field textarea {
+    font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; color: var(--text);
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 13px 15px; width: 100%; transition: border-color .15s, box-shadow .15s;
+  }
+  .enq-field textarea { resize: vertical; min-height: 120px; }
+  .enq-field input:focus, .enq-field textarea:focus {
+    outline: none; border-color: var(--sky); box-shadow: 0 0 0 3px rgba(127,176,217,.22);
+  }
+
+  .enq-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .enq-consent { display: flex; align-items: flex-start; gap: 11px; font-size: 14px; color: var(--text-mid); line-height: 1.5; cursor: pointer; }
+  .enq-consent input { margin-top: 3px; width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--navy); }
+  .enq-consent a { color: var(--tag-blue); text-decoration: underline; }
+
+  .enq-submit { align-self: flex-start; margin-top: 4px; }
+  .enq-submit[disabled] { opacity: .6; cursor: default; }
+  .enq-error { color: #b4322b; font-size: 14px; margin-top: 2px; }
+
+  .enq-success { padding: 24px 0 8px; }
+  .enq-success h2 { color: var(--navy); font-size: clamp(22px, 3vw, 28px); margin-bottom: 10px; }
+  .enq-success p { color: var(--text-mid); font-size: 16.5px; line-height: 1.7; }
+
+  .enq-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); font-size: 15px; color: var(--text-mid); }
+
+  @media (max-width: 560px) {
+    .enq-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script define:vars={{ HS_PORTAL, HS_FORM }}>
+  const form = document.getElementById('enquire-form');
+  const errorEl = document.getElementById('enq-error');
+  const successEl = document.getElementById('enq-success');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl.hidden = true;
+
+    // Honeypot — if filled, silently drop (bot).
+    if (form.company.value) { successEl.hidden = false; form.hidden = true; return; }
+
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    const btn = form.querySelector('.enq-submit');
+    const original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const payload = {
+      fields: [
+        { name: 'firstname', value: form.firstname.value.trim() },
+        { name: 'lastname', value: form.lastname.value.trim() },
+        { name: 'email', value: form.email.value.trim() },
+        { name: 'message', value: form.message.value.trim() },
+      ],
+      context: { pageUri: window.location.href, pageName: document.title },
+      legalConsentOptions: {
+        consent: {
+          consentToProcess: true,
+          text: 'I agree that Higher Ground may store my details to respond to my enquiry.',
+        },
+      },
+    };
+
+    try {
+      const res = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${HS_FORM}`,
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }
+      );
+      if (res.ok) {
+        form.hidden = true;
+        successEl.hidden = false;
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error('HubSpot responded ' + res.status);
+      }
+    } catch (err) {
+      errorEl.hidden = false;
+      btn.disabled = false;
+      btn.textContent = original;
+    }
+  });
+</script>

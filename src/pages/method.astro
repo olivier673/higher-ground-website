@@ -1,0 +1,385 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import arsPhoto from '../assets/images/ars-ridge-team.jpg';
+import tpScreenshot from '../assets/images/trainingpeaks-screenshot.png';
+---
+
+<BaseLayout
+  title="The Method"
+  description="The Altitude Readiness System — built on a certified coaching foundation, the reference literature of alpinism, and specialist partnerships. The Higher Ground method, explained in full."
+  lang="en"
+>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-in">
+      <div class="eyebrow" style="color:var(--sky)">The Higher Ground Method</div>
+      <h1>The <em>Altitude Readiness System</em></h1>
+      <p class="hero-sub"><strong>Ready is a verdict. Not a feeling.</strong> Built on a certified coaching foundation, the reference literature of alpinism, and specialist partnerships in the field — this is how Higher Ground turns training into genuine readiness, kept current with the latest science.</p>
+    </div>
+  </header>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="problem-in">
+      <div class="eyebrow">Why trained isn't ready</div>
+      <h2 class="serif">The mountain doesn't test your training. It tests your readiness.</h2>
+      <p>Above 6,000 metres, the athletes who turn around are rarely the unfit ones. They're the ones who arrived <strong>fit but unready</strong> — under-acclimatised for the profile of their mountain, inefficient at altitude, run down by weeks of poor sleep or nutrition, or simply on the wrong objective for where they actually were.</p>
+      <p>That's the gap Higher Ground is built to close — not a generic plan, downloaded and followed, but a coaching system built around your mountain, your timeline, your starting point and your real life.</p>
+      <p><strong>And it doesn't stop at the plan.</strong> A real coach reviews your training, your data and your life every week, adjusting continuously as reality changes — work, illness, fatigue, a mountain that shifts. Readiness isn't a document you're handed once; it's something built with you, week by week.</p>
+      <p class="kicker">The goal was never to train more. The goal is to prepare better.</p>
+    </div>
+  </section>
+
+  <!-- ARS SIX LAYERS — navy, photo blended into the background, not boxed -->
+  <section class="ars">
+    <div class="ars-media">
+      <Image src={arsPhoto} alt="A rope team on a summit ridge, mountains stretching to the horizon" class="ars-img" width={1920} quality={78} />
+      <div class="ars-scrim"></div>
+    </div>
+    <div class="wrap ars-in">
+      <div class="ars-head wide">
+        <div class="eyebrow" style="color:var(--sky)">The Altitude Readiness System</div>
+        <h2 class="serif">Six layers. One outcome.</h2>
+        <p>Higher Ground developed the <strong>Altitude Readiness System</strong> to govern everything readiness depends on — not as separate workstreams, but as one integrated preparation, each layer enabling the next.</p>
+      </div>
+      <div class="stack">
+        <div class="layer">
+          <div class="layer-alt">Layer<b>01</b></div>
+          <div><h4>Build the engine</h4><p>The aerobic foundation no altitude tool can replace.</p></div>
+        </div>
+        <div class="layer">
+          <div class="layer-alt">Layer<b>02</b></div>
+          <div><h4>Convert to mountain output</h4><p>Fitness translated into real terrain performance — up and down.</p></div>
+        </div>
+        <div class="layer">
+          <div class="layer-alt">Layer<b>03</b></div>
+          <div><h4>Manage altitude exposure</h4><p>Acclimatisation designed around your objective, not a generic itinerary.</p></div>
+        </div>
+        <div class="layer">
+          <div class="layer-alt">Layer<b>04</b></div>
+          <div><h4>Pre-acclimatise at home</h4><p>Individualised hypoxic protocols, when the objective or timeline demands it.</p></div>
+        </div>
+        <div class="layer">
+          <div class="layer-alt">Layer<b>05</b></div>
+          <div><h4>Move and breathe efficiently</h4><p>Protecting oxygen economy on every step of summit day.</p></div>
+        </div>
+        <div class="layer">
+          <div class="layer-alt">Layer<b>06</b></div>
+          <div><h4>Health, nutrition &amp; recovery</h4><p>Across the full preparation cycle — not patched on at the end.</p></div>
+        </div>
+      </div>
+      <p class="stack-note">No single layer makes you ready.<br>Readiness is what emerges when all six are governed together.</p>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE / CHECKPOINTS -->
+  <section class="gov">
+    <div class="wrap">
+      <div class="gov-grid">
+        <div class="gov-lead">
+          <div class="eyebrow">How the verdict works</div>
+          <h2 class="serif">Checkpoints. Not hope.</h2>
+          <p>Every engagement begins by understanding your objective — is this the right mountain, for you, now? From there, we work through it together: at defined checkpoints, we help you understand exactly where your preparation stands against what your objective actually needs — never against a generic standard.</p>
+          <p>Together, at each checkpoint, that means one of three honest reads:</p>
+        </div>
+        <div class="verdicts">
+          <div class="verdict">
+            <h4>On track</h4>
+            <p>Preparation is doing what your objective needs. We keep building, together.</p>
+          </div>
+          <div class="verdict adjust">
+            <h4>Adjust</h4>
+            <p>Something has shifted — we adjust the plan with you. The objective stays governed.</p>
+          </div>
+          <div class="verdict reconsider">
+            <h4>Reconsider</h4>
+            <p>The honest conversation, had early — about a different timeline, a different mountain, or not yet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP SEQUENCE -->
+  <section class="roadmap">
+    <div class="wrap">
+      <div class="rm-head">
+        <div class="eyebrow">How it actually runs</div>
+        <h2 class="serif">From today to objective day.</h2>
+        <p>A typical Performance Lab athlete engagement follows the same clear sequence every time — no guesswork, no surprises.</p>
+      </div>
+      <div class="rm-steps">
+        <div class="rm-step">
+          <div class="rm-n">01</div>
+          <h4>Intake</h4>
+          <p>Three stages: your objective, your history, your constraints — so the plan starts from reality, not a template.</p>
+        </div>
+        <div class="rm-step">
+          <div class="rm-n">02</div>
+          <h4>The plan, built backward</h4>
+          <p>We reverse-engineer your mountain, then build your preparation backward from departure day.</p>
+        </div>
+        <div class="rm-step">
+          <div class="rm-n">03</div>
+          <h4>Train. Report. Adjust.</h4>
+          <p>Delivered through TrainingPeaks, synced to your Garmin, Suunto, Coros or Polar — you train and report, we review and adjust.</p>
+        </div>
+        <div class="rm-step">
+          <div class="rm-n">04</div>
+          <h4>Milestones you can feel</h4>
+          <p>Progress that's visible to you, not just tracked in a spreadsheet.</p>
+        </div>
+        <div class="rm-step">
+          <div class="rm-n">05</div>
+          <h4>Six months, minimum</h4>
+          <p>Real preparation takes real time. We'll say so honestly if your timeline doesn't allow it.</p>
+        </div>
+      </div>
+      <div class="rm-tp">
+        <h4>How training is tracked</h4>
+        <p>Your plan lives in TrainingPeaks — a free platform that syncs automatically with your Garmin, Suunto, Coros, Polar or Apple Watch. Every week is reviewed in full: what was completed, how it felt, your sleep and recovery, fatigue and injury signals, and your progress against the expedition timeline — not just whether the session happened.</p>
+        <div class="rm-tp-shot">
+          <Image src={tpScreenshot} alt="A real week from a Higher Ground athlete's TrainingPeaks calendar, showing sessions, load and recovery metrics" width={1400} quality={82} />
+        </div>
+      </div>
+      <p class="rm-close">This is what Performance Lab athletes actually experience. <a href="/performance-lab" class="rm-link">Discover the Performance Lab →</a></p>
+    </div>
+  </section>
+
+  <!-- GATES -->
+  <section class="gates">
+    <div class="wrap">
+      <div class="gates-head wide">
+        <div class="eyebrow">Proof, not assertion</div>
+        <h2 class="serif">Readiness is demonstrated in stages.</h2>
+        <p>We don't declare an athlete ready — we prove it, gate by gate. Each stage has to be genuinely met before the next is built on, and each is measured against evidence, not feeling. It's the difference between "the plan is going well" and "here is exactly where you stand."</p>
+      </div>
+      <div class="gate-track">
+        <div class="gate">
+          <div class="gnum">Gate 01</div>
+          <h4>Aerobic base</h4>
+          <p>A deep, efficient aerobic foundation — the engine every later gate depends on.</p>
+        </div>
+        <div class="gate">
+          <div class="gnum">Gate 02</div>
+          <h4>Vertical capacity</h4>
+          <p>Sustainable climbing speed at the right intensity — measured, on real terrain.</p>
+        </div>
+        <div class="gate">
+          <div class="gnum">Gate 03</div>
+          <h4>Durability</h4>
+          <p>Long days and back-to-back days completed with controlled fall-off — the capacity that expeditions actually demand.</p>
+        </div>
+        <div class="gate">
+          <div class="gnum">Gate 04</div>
+          <h4>Objective-specific readiness</h4>
+          <p>Preparation that matches the real demands of your mountain — load, terrain, and the specificity your objective requires.</p>
+        </div>
+        <div class="gate">
+          <div class="gnum">Gate 05</div>
+          <h4>Altitude &amp; operational readiness</h4>
+          <p>Acclimatisation validated, an optional pre-acclimatisation protocol completed when the objective calls for it, and the operational and mental skills to execute when the plan changes.</p>
+        </div>
+      </div>
+      <p class="gates-note">Each gate is measured against defined markers held inside the Higher Ground system — the specifics are the method, and the method is what you're trusting.</p>
+    </div>
+  </section>
+
+  <!-- AI DIFFERENTIATION — the argument, kept general; specifics live in the next section -->
+  <section class="ai">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--sky)">Why this can't be generated</div>
+      <h2 class="serif">The plan is now the commodity. <em>The judgment is the value.</em></h2>
+      <p class="lead wide-p">Any AI can generate a training plan in seconds today — Higher Ground uses these tools too, for the parts they're genuinely good at. What no AI can do is everything underneath a plan: a certified methodology tested against real mountains, judgment earned from real decisions, and one specific human, read whole — not matched to the nearest average.</p>
+      <div class="human-grid">
+        <div class="human"><h4>A certified, tested methodology</h4><p>Grounded in a rigorous coaching curriculum and the reference literature of alpinism — not improvised, not scraped from the internet's averages.</p></div>
+        <div class="human"><h4>One specific human, read whole</h4><p>Your physiology, your history, your work, your life — one integrated read, not generic advice per symptom.</p></div>
+        <div class="human"><h4>Pre-acclimatisation that fits you</h4><p>Hypoxic protocols individualised to how your body actually responds — measured, adjusted, governed.</p></div>
+        <div class="human"><h4>A network behind every call</h4><p>Testing labs, altitude specialists and mountain-medicine partners — so no recommendation rests on one opinion.</p></div>
+      </div>
+      <p class="ai-punch">Knowing what matters. Adapting when reality changes. Making sure you arrive ready. That's the human work.</p>
+    </div>
+  </section>
+
+  <!-- WHAT THE METHOD IS BUILT ON — the proof, named in full, once -->
+  <section class="built">
+    <div class="wrap">
+      <div class="built-head wide">
+        <div class="eyebrow">What the method is built on</div>
+        <h2 class="serif">A certified foundation. <em>Not one person's opinion.</em></h2>
+        <p>There's no certification built specifically for high-altitude mountaineering coaching — it doesn't exist, anywhere. So Higher Ground built its foundation on the closest rigorous discipline that does, and layered real expertise on top.</p>
+      </div>
+      <div class="built-grid">
+        <div class="built-card">
+          <h4>UESCA-certified coaching</h4>
+          <p>The United Endurance Sports Coaching Academy's ultrarunning certification — built with Jason Koop, coach to multiple elite ultrarunners, and physiologist Corrine Malcolm. A 20-module curriculum spanning athlete psychology, exercise physiology, program design and race-day execution, applied here to altitude.</p>
+        </div>
+        <div class="built-card">
+          <h4>The reference literature of alpinism</h4>
+          <p><em>Training for the New Alpinism</em> and <em>Training for the Uphill Athlete</em> — written by Steve House, alpinist and Piolet d'Or winner, and his longtime coach Scott Johnston. Widely regarded as the closest thing alpinism has to a scientific canon.</p>
+        </div>
+        <div class="built-card">
+          <h4>Specialist partnerships</h4>
+          <p>Pre-acclimatisation protocols developed with the strategic guidance of The Altitude Center in London — integrated into your training, not sold as a standalone shortcut.</p>
+        </div>
+      </div>
+      <p class="built-synthesis">This layered approach — certified coaching, the reference literature of alpinism, and specialist partnerships — is what makes this a complete system, built on the best available knowledge, not one coach's personal opinion.</p>
+      <div class="built-cta">
+        <a href="/enquire" class="btn btn-primary">Let's talk</a>
+        <a href="/about" class="built-link">Want to know more about Olivier Gil, the person behind Higher Ground? →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Shared wide-text utility for wrap-nested head blocks — unifies every
+     narrative paragraph block to the same ~860px reading width used by
+     the boxed content (layer stack, gate track, credibility cards). */
+  .wide { max-width: 860px; }
+  .wide-p { max-width: 860px !important; }
+
+  /* PROBLEM's container sits outside .wrap, so it needs its own
+     centering and padding — same width target, different mechanism. */
+  .problem-in { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+
+  /* HERO — plain navy, no photo, no decorative lines: matches no other
+     page's hero exactly, but introduces nothing inconsistent either. */
+  .hero { background: var(--navy-deep); color: #fff; padding: 100px 0 88px; }
+  .hero h1 {
+    font-family: 'IBM Plex Sans', sans-serif; font-weight: 600;
+    font-size: clamp(38px, 6.4vw, 68px); line-height: 1.04; letter-spacing: -.02em;
+    margin: 20px 0 24px; max-width: 16ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--sky-bright); }
+  .hero-sub { font-size: clamp(17px, 2vw, 19.5px); color: #C8D6E5; font-weight: 300; max-width: 56ch; line-height: 1.6; }
+  .hero-sub strong { color: #fff; font-weight: 600; }
+
+  /* PROBLEM */
+  .problem { padding: 92px 0; }
+  .problem h2 { font-size: clamp(27px, 3.8vw, 40px); color: var(--navy); line-height: 1.14; margin-bottom: 26px; max-width: 22ch; }
+  .problem p { font-size: 17px; color: var(--text-mid); line-height: 1.7; margin-bottom: 18px; }
+  .problem p strong { color: var(--navy); font-weight: 600; }
+  .kicker {
+    font-weight: 500; font-size: clamp(19px, 2.4vw, 24px); color: var(--navy);
+    border-left: 2px solid var(--sky); padding-left: 22px; margin-top: 30px !important; line-height: 1.45; max-width: 44ch;
+  }
+
+  /* ARS — photo as full-bleed background texture, scrim heavy on the
+     left (text side), easing toward the right — same mechanism as the
+     hero originally used. The photo should read as mood, not a subject. */
+  .ars { position: relative; overflow: hidden; padding: 96px 0; background: var(--navy-deep); }
+  .ars-media { position: absolute; inset: 0; z-index: 1; }
+  .ars-media .ars-img { width: 100%; height: 100%; object-fit: cover; object-position: center 47%; display: block; }
+  .ars-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg,
+      rgba(3,13,30,.95) 0%, rgba(3,13,30,.88) 38%,
+      rgba(3,13,30,.68) 68%, rgba(7,29,63,.52) 100%);
+  }
+  .ars-in { position: relative; z-index: 2; color: #fff; }
+  .ars-head { margin-bottom: 48px; }
+  .ars-head h2 { font-size: clamp(29px, 4.2vw, 44px); color: #fff; line-height: 1.1; margin: 14px 0 18px; }
+  .ars-head p { font-size: 17px; color: #B8CBDE; line-height: 1.65; }
+  .ars-head p strong { color: #fff; font-weight: 600; }
+  .stack { display: flex; flex-direction: column; max-width: 860px; }
+  .layer {
+    display: grid; grid-template-columns: 64px 1fr; gap: 26px; align-items: center;
+    background: rgba(13,37,72,.6); border: 1px solid rgba(127,176,217,.22); border-radius: 14px;
+    padding: 22px 28px; transition: transform .25s, background .25s;
+  }
+  .layer + .layer { margin-top: 10px; }
+  .layer:hover { transform: translateX(6px); background: rgba(13,37,72,.8); }
+  .layer-alt { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--sky); letter-spacing: .06em; text-align: right; line-height: 1.4; }
+  .layer-alt b { display: block; font-size: 17px; color: #fff; font-weight: 600; }
+  .layer h4 { font-size: 18px; font-weight: 600; color: #fff; letter-spacing: -.01em; margin-bottom: 3px; }
+  .layer p { font-size: 14px; color: #9FB6CC; line-height: 1.5; }
+  .stack-note { text-align: center; margin-top: 36px; font-size: clamp(18px, 2.3vw, 22px); font-weight: 500; color: var(--sky-bright); line-height: 1.45; }
+  @media (max-width: 640px) { .layer { grid-template-columns: 1fr; gap: 8px; } .layer-alt { text-align: left; } }
+
+  /* GOVERNANCE */
+  .gov { padding: 96px 0; background: var(--ice); }
+  .gov-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: start; }
+  .gov-lead h2 { font-size: clamp(27px, 3.8vw, 40px); color: var(--navy); line-height: 1.12; margin-top: 14px; }
+  .gov-lead p { margin-top: 20px; font-size: 16.5px; color: var(--text-mid); line-height: 1.65; }
+  .verdicts { display: flex; flex-direction: column; gap: 14px; }
+  .verdict { border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; background: #fff; }
+  .verdict h4 { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+  .verdict h4::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--sky); }
+  .verdict.adjust h4::before { background: var(--steel-lt); }
+  .verdict.reconsider h4::before { background: var(--navy); }
+  .verdict p { font-size: 14.5px; color: var(--text-mid); line-height: 1.55; }
+  @media (max-width: 800px) { .gov-grid { grid-template-columns: 1fr; gap: 34px; } }
+
+  /* ROADMAP */
+  .roadmap { background: var(--navy); color: #fff; padding: 96px 0; }
+  .rm-head { max-width: 640px; margin-bottom: 44px; }
+  .rm-head h2 { font-size: clamp(27px, 3.8vw, 40px); line-height: 1.14; margin: 14px 0 16px; }
+  .rm-head p { font-size: 16.5px; color: #B8CBDE; line-height: 1.62; }
+  .rm-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 20px; }
+  .rm-step { border: 1px solid rgba(127,176,217,.22); border-radius: 14px; padding: 24px 20px; background: rgba(13,37,72,.4); }
+  .rm-tp {
+    border: 1px solid rgba(127,176,217,.38); border-radius: 14px; padding: 26px 30px;
+    background: rgba(7,29,63,.55); margin-bottom: 36px;
+  }
+  .rm-tp h4 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--sky); font-weight: 500; margin-bottom: 10px; }
+  .rm-tp p { font-size: 14.5px; color: #C4D4E4; line-height: 1.62; max-width: 78ch; }
+  .rm-tp-shot { margin-top: 22px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(127,176,217,.3); }
+  .rm-tp-shot :global(img) { width: 100%; height: auto; display: block; }
+  .rm-n { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; color: var(--sky); margin-bottom: 14px; }
+  .rm-step h4 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+  .rm-step p { font-size: 13px; color: #9FB6CC; line-height: 1.5; }
+  .rm-close { font-size: 16px; color: #C8D6E5; border-top: 1px solid rgba(127,176,217,.22); padding-top: 30px; }
+  .rm-link { color: var(--sky-bright); font-weight: 600; }
+  @media (max-width: 1000px) { .rm-steps { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 640px) { .rm-steps { grid-template-columns: 1fr; } }
+
+  /* GATES */
+  .gates { padding: 96px 0; background: var(--paper); }
+  .gates-head { margin-bottom: 48px; }
+  .gates-head h2 { font-size: clamp(28px, 4vw, 42px); color: var(--navy); line-height: 1.1; margin: 14px 0 18px; }
+  .gates-head p { font-size: 16.5px; color: var(--text-mid); line-height: 1.7; }
+  .gate-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .gate { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 26px 22px; position: relative; transition: transform .25s, box-shadow .25s; }
+  .gate:hover { transform: translateY(-4px); box-shadow: 0 14px 40px -20px rgba(7,29,63,.22); }
+  .gate .gnum { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); margin-bottom: 12px; }
+  .gate h4 { font-size: 17px; font-weight: 600; color: var(--navy); letter-spacing: -.01em; margin-bottom: 8px; line-height: 1.25; }
+  .gate p { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+  .gates-note { margin: 30px auto 0; font-size: 16px; font-weight: 500; color: var(--text-mid); max-width: 60ch; line-height: 1.5; text-align: center; }
+  @media (max-width: 900px) { .gate-track { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .gate-track { grid-template-columns: 1fr; } }
+
+  /* AI */
+  .ai { background: var(--navy-deep); color: #fff; padding: 96px 0; position: relative; overflow: hidden; }
+  .ai .contours { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .ai .wrap { position: relative; z-index: 2; }
+  .ai h2 { font-size: clamp(28px, 4.2vw, 44px); line-height: 1.1; margin: 14px 0 22px; max-width: 20ch; }
+  .ai h2 em { font-style: normal; color: var(--sky-bright); }
+  .ai .lead { font-size: 17px; color: #B8CBDE; line-height: 1.65; margin-bottom: 40px; }
+  .human-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 900px; }
+  .human { border-left: 2px solid var(--sky); padding: 4px 0 4px 22px; }
+  .human h4 { font-size: 18px; font-weight: 600; margin-bottom: 5px; }
+  .human p { font-size: 14.5px; color: #9FB6CC; line-height: 1.55; }
+  .ai-punch { margin-top: 48px; font-size: clamp(19px, 2.6vw, 25px); font-weight: 500; color: var(--sky-bright); max-width: 46ch; line-height: 1.4; }
+  @media (max-width: 680px) { .human-grid { grid-template-columns: 1fr; } }
+
+  /* WHAT THE METHOD IS BUILT ON */
+  .built { padding: 96px 0; background: var(--ice); }
+  .built-head { margin-bottom: 44px; }
+  .built-head h2 { font-size: clamp(28px, 4vw, 42px); color: var(--navy); line-height: 1.16; margin: 14px 0 18px; }
+  .built-head h2 em { font-style: normal; color: var(--steel); }
+  .built-head p { font-size: 16.5px; color: var(--text-mid); line-height: 1.65; }
+  .built-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+  .built-card { border: 1px solid var(--line); border-radius: 16px; padding: 28px 26px; background: #fff; }
+  .built-card h4 { font-size: 17.5px; font-weight: 600; color: var(--navy); margin-bottom: 10px; line-height: 1.3; }
+  .built-card p { font-size: 14px; color: var(--text-mid); line-height: 1.58; }
+  .built-card p em { font-style: normal; font-weight: 600; color: var(--navy); }
+  .built-synthesis {
+    font-size: clamp(18px, 2.1vw, 21px); font-weight: 500; color: var(--navy);
+    border-left: 2px solid var(--sky); padding-left: 22px; margin-bottom: 40px; line-height: 1.5; max-width: 860px;
+  }
+  .built-cta { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .built-link { font-size: 14.5px; color: var(--steel); font-weight: 500; }
+  @media (max-width: 820px) { .built-grid { grid-template-columns: 1fr; } }
+</style>

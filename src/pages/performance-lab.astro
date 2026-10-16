@@ -1,0 +1,394 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import climberRidge from '../assets/images/climber-ridge.jpg';
+---
+
+<BaseLayout
+  title="The Performance Lab"
+  description="Higher Ground's deepest engagement — full, ultra-personalized 1:1 coaching for ambitious mountain and altitude objectives, from a first serious high-altitude goal to a no-oxygen 8,000er."
+  lang="en"
+>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-media">
+      <Image src={climberRidge} alt="A climber roped up, cramponing along a rocky summit ridge" class="hero-img" width={1920} quality={75} loading="eager" fetchpriority="high" />
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="ruler" aria-hidden="true">
+      <span>8,000 m</span><span>6,000 m</span><span>4,000 m</span><span>2,000 m</span><span>0 m</span>
+    </div>
+    <div class="wrap hero-in">
+      <div class="eyebrow" style="color:var(--sky)">The Performance Lab</div>
+      <h1>For objectives that <em>define you.</em></h1>
+      <p class="hero-sub">
+        Higher Ground's deepest engagement — full, <strong>ultra-personalized
+        1:1 coaching</strong> for ambitious goals, from a first serious
+        high-altitude objective to a no-oxygen 8,000er. One athlete, one
+        objective, nothing generic.
+      </p>
+      <div class="hero-tags">
+        <span>Ultra-personalized coaching</span>
+        <span>One objective per athlete</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- WHAT THE LAB IS -->
+  <section class="what">
+    <div class="narrow">
+      <div class="eyebrow">What the Lab is</div>
+      <h2 class="serif">The entire readiness system is the product.</h2>
+      <p>
+        The Performance Lab is Higher Ground's premium coaching practice —
+        built for elite athletes preparing world-class objectives, and
+        equally for anyone who wants that same level of ultra-personalized
+        attention applied to their own ambitious goal, whatever the scale.
+      </p>
+      <p>
+        Coaching subscriptions sell you a training plan and leave you to
+        assemble the rest. The Lab is built the other way: the full <a href="/method" class="inline-link"><strong>Altitude Readiness System</strong></a>, applied at maximum depth
+        — testing with partner labs, individualised hypoxic protocols,
+        periodised nutrition, field-based monitoring, and go/no-go readiness
+        decisions governed all the way to your objective.
+      </p>
+      <p class="kicker">This is coaching built around one person: you, your objective, and nothing generic in between.</p>
+    </div>
+  </section>
+
+  <!-- STAKES -->
+  <section class="stakes">
+    <div class="wrap">
+      <div class="stakes-band">
+        <div class="eyebrow">Who &amp; what it's for</div>
+        <h2 class="serif">Defined by the stakes, not the sport.</h2>
+        <p>
+          The Lab isn't limited to one discipline, or to one level of
+          ambition. What matters is that your objective is real to you —
+          dated, serious, and worth preparing for properly.
+        </p>
+        <div class="disciplines">
+          <span class="disc">Alpinism</span>
+          <span class="disc">High-altitude expeditions</span>
+          <span class="disc">Ski-mountaineering</span>
+          <span class="disc">Mountain &amp; altitude ultra</span>
+          <span class="disc">Technical &amp; big-wall climbing</span>
+          <span class="disc">High-altitude trekking objectives</span>
+        </div>
+        <p class="stakes-line">Whatever your discipline — if readiness is a decision, not a feeling, this is where it's made.</p>
+        <div class="examples">
+          <div class="lab">Objectives we prepare, for example</div>
+          <ul>
+            <li>First serious 6,000–7,000m objectives</li>
+            <li>8,000ers without supplemental oxygen</li>
+            <li>Speed ascents &amp; FKTs</li>
+            <li>First ascents &amp; major alpine faces</li>
+            <li>High-altitude ski descents</li>
+            <li>Altitude ultra races</li>
+            <li>Technical objectives at altitude</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="field">
+    <svg class="contours" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#7FB0D9" stroke-width="1">
+        <path d="M-50,330 C260,280 400,210 600,226 C800,242 920,180 1070,188 C1175,193 1240,180 1260,184" opacity=".38"/>
+        <path d="M-50,275 C280,220 420,150 620,164 C820,178 940,116 1078,122 C1180,126 1245,116 1260,120" opacity=".42"/>
+      </g>
+    </svg>
+    <div class="wrap field-in">
+      <div class="field-head">
+        <div class="eyebrow" style="color:var(--sky)">The method, in the field</div>
+        <h2 class="serif">Proven where it counts. Right now.</h2>
+        <p>The Altitude Readiness System isn't theory — it's operating today, at the highest level there is.</p>
+      </div>
+      <div class="field-grid">
+        <div class="evidence">
+          <div class="status">Live · on the mountain now</div>
+          <h3>Simon Niklaus</h3>
+          <div class="obj">Manaslu · 8,163m · No supplemental oxygen</div>
+          <p>
+            The first step of a long-term project: <strong>all fourteen
+            8,000ers, without oxygen</strong> — a feat achieved by fewer
+            people than have flown to the Moon. Right now, Simon is on
+            Manaslu, applying the full system in real time — the testing,
+            the individualised hypoxic pre-acclimatisation, the field
+            monitoring and checkpoint verdicts that got him to departure,
+            now being tested against the mountain itself.
+          </p>
+          <a class="follow" href="https://www.instagram.com/olivier.higherground/" target="_blank" rel="noopener">Follow the preparation →</a>
+        </div>
+        <div class="field-side">
+          <h4>One example of the system at work — not the whole of it.</h4>
+          <p>The Lab prepares athletes and premium clients across mountain and altitude disciplines, at every level of ambition.</p>
+          <div class="more">More projects · announced as they begin</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFEST -->
+  <section class="manifest">
+    <div class="wrap">
+      <div class="manifest-head">
+        <div class="eyebrow">One engagement · everything included</div>
+        <h2 class="serif">The readiness manifest.</h2>
+        <p>Everything below is included. Nothing is an option, an upgrade, or an extra — it is simply how we prepare you.</p>
+      </div>
+      <div class="rows">
+        <div class="mrow">
+          <h3>Dedicated 1:1 coaching</h3>
+          <p>Programming in adaptive 1–2 week blocks, reviewed daily and adjusted to your feedback, travel, and real life — by your coach, not a roster.</p>
+        </div>
+        <div class="mrow">
+          <h3><a href="/method" class="inline-link">The Altitude Readiness System</a><span class="tag">Proprietary</span></h3>
+          <p>The methodology developed by Higher Ground, governing training load, acclimatisation, and go/no-go readiness decisions across your entire preparation.</p>
+        </div>
+        <div class="mrow">
+          <h3>Pre-acclimatisation protocol</h3>
+          <p>A structured, individualised altitude preparation plan built for your specific objective, timeline, and physiology.</p>
+        </div>
+        <div class="mrow">
+          <h3>Periodised nutrition</h3>
+          <p>Fuelling that adapts to the work, synced daily to your training calendar and managed within the engagement.</p>
+        </div>
+        <div class="mrow">
+          <h3>TrainingPeaks</h3>
+          <p>Full access, configured for every session from day one.</p>
+        </div>
+        <div class="mrow">
+          <h3>Physiological testing</h3>
+          <p>
+            Protocol design with our partner labs, and full interpretation of
+            your results folded back into your programming.
+            <span class="note">The Lab covers the protocol and the interpretation; testing itself is arranged and billed directly by the partner lab.</span>
+          </p>
+        </div>
+        <div class="mrow">
+          <h3>Strategy &amp; dialogue</h3>
+          <p>A standing monthly call, and continuous asynchronous contact with your coach in between. Questions never wait for an appointment.</p>
+        </div>
+        <div class="mrow">
+          <h3>Objective-day strategy</h3>
+          <p>Pacing, fuelling, and contingency planning for the day itself — decided together, before you need it.</p>
+        </div>
+      </div>
+      <div class="price-cta">
+        <p class="price-note">Price on request — scoped to your objective and timeline.</p>
+        <a href="/enquire" class="btn btn-primary">Discuss your project →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALTITUDE LAYER — demoted, same treatment as Agencies got on the homepage -->
+  <section class="altlayer">
+    <div class="wrap">
+      <div class="al-band">
+        <h3 class="al-title">You already have a coach and need the Altitude Readiness layer only.</h3>
+        <p>
+          We integrate rather than replace. If your training is already
+          covered and working, the Altitude Readiness System can be added as
+          its own layer — altitude strategy, individualised
+          pre-acclimatisation, and readiness governance, built specifically
+          for your objective and coordinated with your existing coach rather
+          than competing with them. You keep the coaching relationship you
+          already trust; we own the altitude-specific readiness on top of it.
+        </p>
+        <p class="al-price">Price on request. <a href="/enquire" class="al-link">Discuss the Altitude Layer →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER -->
+  <section class="filter">
+    <div class="filter-in">
+      <div class="eyebrow">An honest word</div>
+      <h2 class="serif">The Lab is a full commitment — and it isn't for everyone.</h2>
+      <p>
+        It's built for a close, ongoing 1:1 relationship — real-time
+        adjustment, direct access, one objective held at a time. If you're
+        looking for something lighter or more self-directed, you'll be
+        better served — and better value — elsewhere in Higher Ground.
+      </p>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="cta">
+    <div class="cta-in">
+      <div class="eyebrow" style="color:var(--sky)">A conversation, not a checkout</div>
+      <h2 class="serif">Discuss your project.</h2>
+      <p>
+        Tell us your objective, your timeline, and what "ready" needs to
+        mean for it. We take one objective per athlete and keep engagements
+        deliberately close — if the fit isn't right, we'll tell you and
+        point you somewhere better.
+      </p>
+      <a href="/enquire" class="btn btn-primary">Let's talk</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: 560px; display: flex; align-items: center;
+    background: var(--navy-deep);
+  }
+  .hero-media { position: absolute; inset: 0; z-index: 1; }
+  .hero-media .hero-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(100deg, rgba(3,13,30,.92) 0%, rgba(3,13,30,.72) 46%, rgba(7,29,63,.44) 100%);
+  }
+  .ruler {
+    position: absolute; right: 44px; top: 100px; bottom: 90px; width: 1px;
+    background: rgba(127,176,217,.32); display: flex; flex-direction: column;
+    justify-content: space-between; z-index: 2;
+  }
+  .ruler span {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--steel-lt);
+    letter-spacing: .08em; transform: translateX(-100%); padding-right: 12px;
+    white-space: nowrap; position: relative;
+  }
+  .ruler span::after {
+    content: ""; position: absolute; right: -5px; top: 50%; width: 9px; height: 1px;
+    background: rgba(127,176,217,.5);
+  }
+  @media (max-width: 900px) { .ruler { display: none; } }
+  .hero-in { position: relative; z-index: 2; padding: 96px 32px; width: 100%; }
+  .hero h1 {
+    font-family: 'IBM Plex Sans', sans-serif; font-weight: 600;
+    color: #fff; font-size: clamp(36px, 6vw, 66px);
+    line-height: 1.08; letter-spacing: -.02em; margin: 20px 0 24px; max-width: 15ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--sky-bright); }
+  .hero-sub { font-size: clamp(16.5px, 1.9vw, 19px); color: #C8D6E5; font-weight: 300; max-width: 56ch; line-height: 1.62; }
+  .hero-sub strong { color: #fff; font-weight: 500; }
+  .hero-tags {
+    margin-top: 28px; display: flex; gap: 22px; flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--steel-lt);
+  }
+  .hero-tags span { display: flex; align-items: center; gap: 8px; }
+  .hero-tags span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--sky); }
+
+  /* WHAT THE LAB IS */
+  .what { padding: 88px 0; }
+  .what h2 { font-size: clamp(26px, 3.6vw, 38px); color: var(--navy); line-height: 1.16; margin: 14px 0 22px; max-width: 22ch; }
+  .what p { font-size: 17px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
+  .what p strong { color: var(--navy); font-weight: 600; }
+  .kicker {
+    font-weight: 500; font-size: clamp(18px, 2.1vw, 21px); color: var(--navy);
+    border-left: 2px solid var(--sky); padding-left: 22px; margin-top: 26px !important; line-height: 1.5;
+  }
+
+  /* STAKES */
+  .stakes { padding: 0 0 88px; }
+  .stakes-band { background: var(--ice); border: 1px solid var(--line); border-radius: 20px; padding: clamp(34px, 4vw, 52px); }
+  .stakes-band h2 { font-size: clamp(24px, 3.1vw, 32px); color: var(--navy); line-height: 1.18; margin: 14px 0 18px; }
+  .stakes-band p { font-size: 16.5px; color: var(--text-mid); line-height: 1.68; margin-bottom: 22px; }
+  .disciplines { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+  .disc { font-size: 13.5px; color: var(--navy); background: #fff; border: 1px solid var(--ice-line); border-radius: 100px; padding: 9px 18px; }
+  .stakes-line { font-weight: 500; font-size: clamp(17px, 2.1vw, 20px); color: var(--navy); line-height: 1.5; max-width: 52ch; }
+  .examples { margin-top: 24px; border-top: 1px solid var(--ice-line); padding-top: 22px; }
+  .examples .lab {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--steel); margin-bottom: 12px;
+  }
+  .examples ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 26px; }
+  .examples li { font-size: 14.5px; color: var(--text-mid); position: relative; padding-left: 18px; }
+  .examples li::before { content: "—"; position: absolute; left: 0; color: var(--sky); }
+
+  /* PROOF */
+  .field { background: var(--navy-deep); color: #fff; padding: 92px 0; position: relative; overflow: hidden; }
+  .field .contours { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .3; }
+  .field-in { position: relative; z-index: 2; }
+  .field-head { max-width: 640px; margin-bottom: 40px; }
+  .field-head h2 { font-size: clamp(27px, 3.8vw, 40px); line-height: 1.14; margin: 12px 0 14px; }
+  .field-head p { font-size: 16.5px; color: #B8CBDE; line-height: 1.62; }
+  .field-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; align-items: stretch; }
+  .evidence {
+    border: 1px solid rgba(127,176,217,.28); border-radius: 18px; background: rgba(13,37,72,.55);
+    padding: 34px 32px; display: flex; flex-direction: column;
+  }
+  .evidence .status {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: .16em;
+    text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 18px; color: var(--sky);
+  }
+  .evidence .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--sky); box-shadow: 0 0 10px var(--sky); }
+  .evidence h3 { font-size: 24px; font-weight: 600; letter-spacing: -.01em; margin-bottom: 6px; }
+  .evidence .obj { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .06em; color: var(--sky-bright); margin-bottom: 16px; }
+  .evidence p { font-size: 14.5px; color: #AEC4D9; line-height: 1.62; flex: 1; }
+  .evidence p strong { color: #fff; font-weight: 600; }
+  .evidence .follow {
+    margin-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--sky); display: flex; align-items: center; gap: 7px;
+    width: fit-content; border-bottom: 1px solid rgba(127,176,217,.4); padding-bottom: 3px; transition: border-color .2s;
+  }
+  .evidence .follow:hover { border-color: var(--sky); }
+  .field-side {
+    border: 1px solid rgba(127,176,217,.18); border-radius: 18px; background: rgba(13,37,72,.3);
+    padding: 34px 30px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .field-side h4 { font-size: 18.5px; font-weight: 600; margin-bottom: 12px; color: #fff; line-height: 1.32; }
+  .field-side p { font-size: 14.5px; color: #9FB6CC; line-height: 1.6; }
+  .field-side .more {
+    margin-top: auto; padding-top: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--steel-lt);
+  }
+  @media (max-width: 820px) { .field-grid { grid-template-columns: 1fr; } }
+
+  /* MANIFEST */
+  .manifest { padding: 92px 0; }
+  .manifest-head { max-width: 720px; margin-bottom: 34px; }
+  .manifest-head h2 { font-size: clamp(27px, 3.8vw, 40px); color: var(--navy); line-height: 1.14; margin: 14px 0 14px; }
+  .manifest-head p { font-size: 16.5px; color: var(--text-mid); }
+  .mrow { display: grid; grid-template-columns: 280px minmax(0,1fr); gap: 32px; padding: 24px 0; border-top: 1px solid var(--line); align-items: start; }
+  .mrow:last-of-type { border-bottom: 1px solid var(--line); }
+  .mrow h3 { font-size: 16.5px; font-weight: 600; color: var(--navy); line-height: 1.4; }
+  .mrow h3 .tag {
+    display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 500;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--sky); margin-top: 6px;
+  }
+  .mrow p { font-size: 15px; color: var(--text-mid); max-width: 58ch; line-height: 1.6; }
+  .mrow p .note { display: block; font-size: 13px; color: var(--text-lt); margin-top: 8px; }
+  .inline-link { color: inherit; text-decoration: underline; text-decoration-color: rgba(127,176,217,.5); text-underline-offset: 3px; transition: text-decoration-color .2s; }
+  .inline-link:hover { text-decoration-color: var(--sky); }
+  @media (max-width: 640px) { .mrow { grid-template-columns: 1fr; gap: 8px; } }
+  .price-cta {
+    margin-top: 20px; padding-top: 30px; border-top: 2px solid var(--navy);
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .price-note { font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--steel); }
+  .one-fee { padding: 28px 0 0; }
+  .one-fee p { font-size: clamp(18px, 2vw, 21px); font-weight: 400; color: var(--text-mid); max-width: 48ch; line-height: 1.5; }
+  .one-fee p strong { font-weight: 600; color: var(--navy); }
+
+  /* ALTITUDE LAYER — quiet subnote band, upgraded to hold a full sentence title */
+  .altlayer { padding: 0 0 92px; }
+  .al-band { background: var(--ice); border: 1px solid var(--line); border-radius: 16px; padding: 36px 40px; }
+  .al-title { font-size: 19.5px; font-weight: 600; color: var(--navy); line-height: 1.35; margin-bottom: 14px; max-width: 34ch; }
+  .al-band p { font-size: 15px; color: var(--text-mid); line-height: 1.62; max-width: 64ch; }
+  .al-band p + p { margin-top: 14px; }
+  .al-price { font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; color: var(--steel); }
+  .al-link { color: var(--navy); font-weight: 600; white-space: nowrap; font-family: 'IBM Plex Sans', sans-serif; }
+
+  /* FILTER */
+  .filter { background: var(--ice); padding: 78px 0; }
+  .filter-in { max-width: 720px; margin: 0 auto; padding: 0 32px; text-align: center; }
+  .filter h2 { font-size: clamp(23px, 3vw, 32px); color: var(--navy); margin: 12px 0 18px; }
+  .filter p { font-size: 16.5px; color: var(--text-mid); line-height: 1.68; }
+
+  /* CTA */
+  .cta { background: var(--navy-deep); color: #fff; padding: 92px 0; }
+  .cta-in { text-align: center; max-width: 620px; margin: 0 auto; padding: 0 32px; }
+  .cta h2 { font-size: clamp(28px, 4vw, 40px); margin: 14px 0 18px; }
+  .cta p { color: #B8CBDE; font-size: 16.5px; line-height: 1.6; margin-bottom: 30px; }
+</style>

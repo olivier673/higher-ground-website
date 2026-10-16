@@ -6,6 +6,7 @@ import '../styles/global.css';
 import { Image } from 'astro:assets';
 import logoNavy from '../assets/logo/logo-horizontal-navy.png';
 import logoWhite from '../assets/logo/logo-horizontal-white.png';
+import logoVerticalWhite from '../assets/logo/logo-vertical-white.png';
 
 interface Props {
   title: string;
@@ -22,7 +23,7 @@ const nav = {
     method: 'The Method',
     journal: 'Ama Dablam 27',
     about: 'About',
-    enquire: 'Enquire',
+    enquire: "Let's talk",
   },
   fr: {
     performanceLab: 'Performance Lab',
@@ -30,12 +31,32 @@ const nav = {
     method: 'The Method',
     journal: 'Ama Dablam 27',
     about: 'À propos',
-    enquire: 'Contact',
+    enquire: 'Discutons',
   },
 };
 
 const t = nav[lang];
 const prefix = lang === 'fr' ? '/fr' : '';
+
+// --- Language switcher ---------------------------------------------------
+// "logical" path = current path without the /fr prefix, no trailing slash.
+// From it we derive the EN and FR URLs for the SAME page.
+const pathname = Astro.url.pathname;
+const logical = pathname.replace(/^\/fr(?=\/|$)/, '');
+const key = logical.replace(/\/+$/, '') || '/';
+const enHref = key === '/' ? '/' : `${key}/`;
+const frHref = key === '/' ? '/fr/' : `/fr${key}/`;
+
+// Pages that currently have a French version. Add a page's logical path here
+// as soon as its /fr/... version exists, and the FR toggle will link straight
+// to it; until then the toggle falls back to the French home so it never 404s.
+const FR_PAGES = new Set<string>(['/']);
+const frTarget = FR_PAGES.has(key) ? frHref : '/fr/';
+
+// Absolute URLs for SEO / social (Astro.site = production domain from astro.config).
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname;
+const ogImage = Astro.site ? new URL('/og-default.jpg', Astro.site).href : '/og-default.jpg';
+const fullTitle = `${title} — Higher Ground`;
 ---
 
 <!doctype html>
@@ -43,15 +64,27 @@ const prefix = lang === 'fr' ? '/fr' : '';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} — Higher Ground</title>
+    <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Higher Ground" />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_GB'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImage} />
   </head>
   <body>
     <nav class="nav">
       <div class="nav-in">
         <a href={prefix || '/'} class="logo">
-          <Image src={logoNavy} alt="Higher Ground" class="logo-img" width={170} />
+          <Image src={logoNavy} alt="Higher Ground" class="logo-img" width={215} densities={[1, 2, 3]} />
         </a>
         <div class="nav-links">
           <a href={`${prefix}/performance-lab`}>{t.performanceLab}</a>
@@ -59,6 +92,11 @@ const prefix = lang === 'fr' ? '/fr' : '';
           <a href={`${prefix}/method`}>{t.method}</a>
           <a href={`${prefix}/journal`}>{t.journal}</a>
           <a href={`${prefix}/about`}>{t.about}</a>
+          <span class="lang-switch" aria-label="Language">
+            <a href={enHref} class={lang === 'en' ? 'active' : ''} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+            <span class="sep">/</span>
+            <a href={frTarget} class={lang === 'fr' ? 'active' : ''} aria-current={lang === 'fr' ? 'true' : undefined}>FR</a>
+          </span>
           <a href={`${prefix}/enquire`} class="nav-cta">{t.enquire}</a>
         </div>
         <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
@@ -71,6 +109,11 @@ const prefix = lang === 'fr' ? '/fr' : '';
         <a href={`${prefix}/method`}>{t.method}</a>
         <a href={`${prefix}/journal`}>{t.journal}</a>
         <a href={`${prefix}/about`}>{t.about}</a>
+        <span class="lang-switch lang-switch-mobile" aria-label="Language">
+          <a href={enHref} class={lang === 'en' ? 'active' : ''} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+          <span class="sep">/</span>
+          <a href={frTarget} class={lang === 'fr' ? 'active' : ''} aria-current={lang === 'fr' ? 'true' : undefined}>FR</a>
+        </span>
         <a href={`${prefix}/enquire`} class="nav-cta">{t.enquire}</a>
       </div>
     </nav>
@@ -81,11 +124,16 @@ const prefix = lang === 'fr' ? '/fr' : '';
 
     <footer class="foot">
       <div class="wrap foot-in">
-        <Image src={logoWhite} alt="Higher Ground" class="foot-logo" width={140} />
-        <div class="foot-meta">
-          <span>© 2026 Higher Ground</span>
-          <span>{lang === 'fr' ? 'Barcelone' : 'Barcelona'}</span>
-        </div>
+        <Image src={logoVerticalWhite} alt="Higher Ground" class="foot-logo" width={150} densities={[1, 2, 3]} />
+        <a href="https://www.instagram.com/olivier.higherground/" class="foot-ig" target="_blank" rel="noopener" aria-label="Higher Ground on Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
+            <circle cx="12" cy="12" r="4.6"/>
+            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>@olivier.higherground</span>
+        </a>
+        <span class="foot-copy">© 2026 Higher Ground · <a href="/privacy">{lang === 'fr' ? 'Confidentialité' : 'Privacy'}</a></span>
       </div>
     </footer>
 
