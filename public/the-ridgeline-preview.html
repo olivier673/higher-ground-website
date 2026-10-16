@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ridgeline — Higher Ground</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+:root {
+  --bg:        #030D1E;
+  --bg-2:      #0D2548;
+  --bg-3:      #071D3F;
+  --border:    #1A3A66;
+  --steel:     #5A7A96;
+  --steel-lt:  #7A9CBF;
+  --text:      #EEF2F7;
+  --text-lt:   #B8CDD8;
+  --ice:       #EEF2F7;
+  --ice-bdr:   #C8D8E8;
+  --amber:     #7FB0D9;
+  --amber-dim: #4E7CA6;
+  --red:       #c0392b;
+  --r:         10px;
+  --tight:     'IBM Plex Sans', sans-serif;
+  --afacad:    'IBM Plex Mono', monospace;
+  --inter:     'IBM Plex Sans', sans-serif;
+  --barH:      42px;
+}
+
+body {
+  font-family: var(--inter);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TOP BAR (persistent) ── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--barH);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px;
+  z-index: 101;
+  font-family: var(--afacad);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+}
+.topbar .hg { color: #fff; }
+.topbar .sep { color: var(--steel); }
+.topbar .rl { color: var(--amber); }
+
+.progress-bar {
+  position: fixed; top: var(--barH); left: 0; right: 0;
+  height: 2px; background: var(--border); z-index: 100;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--amber-dim), var(--amber));
+  transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+  width: 0%;
+}
+
+#app { position: relative; z-index: 1; min-height: 100vh; padding-top: calc(var(--barH) + 2px); }
+
+/* ── SCREENS ── */
+.screen {
+  display: none; min-height: calc(100vh - var(--barH) - 2px); flex-direction: column;
+  animation: fadeUp 0.55s cubic-bezier(0.16,1,0.3,1) both;
+}
+.screen.active { display: flex; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+
+/* ── HERO (cover screen only) ── */
+.hero {
+  background: var(--bg);
+  position: relative; overflow: hidden;
+  padding: 4rem 2rem 5rem;
+  text-align: center;
+}
+.hero-mountains {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  width: 100%; height: 55%;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+.hero-eyebrow {
+  font-family: var(--afacad); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: #fff; margin-bottom: 18px;
+}
+.hero-h1 {
+  font-family: var(--tight); font-size: clamp(2.4rem, 7vw, 4.4rem);
+  font-weight: 700; color: #fff; line-height: 1.05;
+  letter-spacing: -0.02em; margin-bottom: 20px;
+}
+.hero-h1 em { font-style: italic; color: var(--amber); }
+.hero-sub {
+  font-family: var(--inter); font-size: clamp(14px, 1.8vw, 18px);
+  font-weight: 300; color: var(--text-lt); line-height: 1.7;
+  max-width: 540px; margin: 0 auto;
+}
+.hero-cta { margin-top: 2.5rem; }
+.hero-meta {
+  font-family: var(--afacad); font-size: 11px; color: var(--steel);
+  letter-spacing: 0.15em; text-transform: uppercase; margin-top: 1.75rem;
+}
+
+/* ── CONTENT WRAPPER ── */
+.inner {
+  max-width: 640px; margin: 0 auto; width: 100%;
+  padding: 3rem 2rem 3rem; flex: 1; display: flex; flex-direction: column;
+}
+
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-family: var(--afacad); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 1.25rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content:''; display:block; width:20px; height:1px; background:var(--amber); flex-shrink:0; }
+
+.display {
+  font-family: var(--tight); font-size: clamp(1.7rem, 5vw, 2.6rem);
+  font-weight: 700; color: var(--text); line-height: 1.12; letter-spacing: -0.02em;
+}
+.display em { font-style: italic; font-weight: 700; color: var(--amber); }
+
+.subtitle {
+  font-family: var(--inter); font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-weight: 300; color: var(--text-lt); line-height: 1.65; margin-top: 0.75rem;
+}
+
+.body-text {
+  font-family: var(--inter); font-size: 15px; font-weight: 300;
+  color: var(--text-lt); line-height: 1.8; margin-bottom: 1rem;
+}
+.body-text.small { font-size: 13px; }
+
+.context-note {
+  font-family: var(--inter); font-size: 13px; font-weight: 300; font-style: italic;
+  color: var(--steel-lt); line-height: 1.65; margin-bottom: 1.5rem;
+  padding-left: 0.9rem; border-left: 2px solid var(--border);
+}
+
+.spoken {
+  font-family: var(--inter); font-size: clamp(1rem, 2.2vw, 1.1rem);
+  font-weight: 300; font-style: italic; color: var(--text); line-height: 1.8;
+  margin-bottom: 0.9rem; padding-left: 1.25rem; border-left: 2px solid var(--amber-dim);
+}
+.spoken strong { font-style: normal; font-weight: 600; color: var(--text); }
+
+.beat {
+  text-align: center; font-family: var(--afacad); font-size: 11px;
+  letter-spacing: 0.18em; color: var(--steel); margin: 1.5rem 0; text-transform: uppercase;
+}
+.beat::before, .beat::after { content:'—'; margin: 0 0.5em; }
+
+.ridge { width:100%; height:1px; background: var(--border); margin: 2rem 0; }
+
+.mquote {
+  border-left: 2px solid var(--amber); padding: 0.75rem 0 0.75rem 1.25rem;
+  margin: 1.5rem 0; background: rgba(239,159,39,0.04); border-radius: 0 var(--r) var(--r) 0;
+}
+.mquote p { font-family: var(--inter); font-size: 1.05rem; font-weight: 300; color: var(--text); line-height: 1.75; font-style: italic; }
+.mquote strong { font-style: normal; font-weight: 600; color: var(--text); }
+
+/* ── CHOICE CARDS (3-option selection) ── */
+.choice-label {
+  font-family: var(--afacad); font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--steel); margin: 1.5rem 0 0.75rem;
+}
+.choice-grid { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 0.5rem; }
+.choice-card {
+  border: 1px solid var(--border); border-radius: var(--r);
+  padding: 0.9rem 1.1rem; cursor: pointer; transition: all 0.18s;
+  background: rgba(13,37,72,0.4); text-align: left;
+  font-family: var(--inter); font-size: 14px; font-weight: 300; font-style: italic;
+  color: var(--text-lt); line-height: 1.55;
+}
+.choice-card:hover { border-color: var(--steel); color: var(--text); }
+.choice-card.selected {
+  border-color: var(--amber); background: rgba(239,159,39,0.08); color: var(--text);
+}
+.choice-card .num {
+  font-family: var(--afacad); font-style: normal; font-weight: 700;
+  font-size: 11px; letter-spacing: 0.1em; color: var(--amber-dim);
+  margin-right: 0.5rem;
+}
+
+/* ── SILENCE BOX ── */
+.silence-box {
+  border: 1px solid var(--border); border-radius: var(--r);
+  padding: 2.25rem 2rem; text-align: center; margin: 1.75rem 0;
+  background: rgba(13,37,72,0.6);
+}
+.silence-cap { font-family: var(--afacad); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel); }
+.silence-q {
+  font-family: var(--inter); font-size: 1.05rem; font-weight: 300; font-style: italic;
+  color: var(--text); line-height: 1.65; margin: 1rem 0 1.5rem;
+}
+.silence-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--amber);
+  margin: 0 auto 1.25rem; animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:0.4;transform:scale(1);} 50%{opacity:1;transform:scale(1.4);} }
+
+/* ── REFRAME ── */
+.reframe { background: var(--ice); border: 1px solid var(--ice-bdr); border-radius: var(--r); padding: 1.5rem; margin: 1.25rem 0; }
+.reframe-label { font-family: var(--afacad); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--steel); margin-bottom: 0.5rem; }
+.reframe-text { font-family: var(--inter); font-size: 0.95rem; font-weight: 300; color: var(--bg-3); line-height: 1.7; font-style: italic; }
+
+.commitment-display {
+  border-left: 2px solid var(--amber); padding: 0.75rem 1.25rem; margin: 1.25rem 0;
+  font-family: var(--inter); font-size: 0.95rem; font-weight: 300; color: var(--text);
+  font-style: italic; line-height: 1.65; background: rgba(239,159,39,0.05); border-radius: 0 var(--r) var(--r) 0;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px;
+  border-radius: 100px; font-family: var(--afacad); font-size: 14px; font-weight: 600;
+  letter-spacing: 0.06em; cursor: pointer; transition: all 0.18s; text-decoration: none; border: none;
+}
+.btn-primary { background: var(--amber); color: var(--bg); }
+.btn-primary:hover { background: #A7CDEC; }
+.btn-ghost { background: transparent; color: var(--steel-lt); border: 1px solid var(--border); }
+.btn-ghost:hover { color: var(--text); border-color: var(--steel); }
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+.btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.nav { display: flex; justify-content: space-between; align-items: center; padding-top: 2.5rem; margin-top: auto; }
+
+/* ── CHECKLIST ── */
+.checklist { margin: 1.25rem 0; background: rgba(13,37,72,0.5); border: 1px solid var(--border); border-radius: var(--r); padding: 0.25rem 1rem; }
+.stat-row { display: flex; align-items: center; gap: 10px; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+.stat-row:last-child { border-bottom: none; }
+.stat-dot { width: 6px; height: 6px; border-radius: 50%; background: #27ae60; flex-shrink: 0; }
+.stat-dot.red { background: var(--red); }
+.stat-label { font-family: var(--inter); font-size: 14px; color: var(--text-lt); font-weight: 300; }
+.stat-value { font-family: var(--inter); font-size: 14px; color: var(--text); font-weight: 500; margin-left: auto; }
+
+/* ── FINAL LINES ── */
+.final-line {
+  font-family: var(--tight); font-size: clamp(1.2rem, 3.2vw, 1.7rem); font-weight: 700;
+  color: var(--text); line-height: 1.4; font-style: italic; margin-bottom: 0.8rem;
+  opacity: 0; transform: translateY(8px); transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.final-line.visible { opacity: 1; transform: translateY(0); }
+
+/* ── SPEAKER BRIEF / CTA ── */
+.speaker-brief { background: rgba(13,37,72,0.6); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; margin: 1.5rem 0; }
+.brief-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-family: var(--inter); font-size: 13px; }
+.brief-row:last-child { border-bottom: none; }
+.brief-key { color: var(--steel); font-weight: 300; }
+.brief-val { color: var(--text); font-weight: 500; text-align: right; }
+
+.cta-row { border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; margin-bottom: 1rem; transition: border-color 0.2s; }
+.cta-row:hover { border-color: var(--amber-dim); }
+.cta-tag { font-family: var(--afacad); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.5rem; display: block; }
+.cta-row p { font-family: var(--inter); font-size: 14px; color: var(--text-lt); line-height: 1.65; margin-bottom: 1rem; font-weight: 300; }
+
+@media (max-width: 480px) {
+  .inner { padding: 2.5rem 1.25rem 2rem; }
+  .hero { padding: 3rem 1.25rem 4rem; }
+}
+@media (prefers-reduced-motion: reduce) { .screen, .final-line, .silence-dot { animation: none; transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="topbar"><span class="hg">HIGHER GROUND</span><span class="sep">·</span><span class="rl">THE RIDGELINE</span></div>
+<div class="progress-bar"><div class="progress-fill" id="pf"></div></div>
+<div id="app"></div>
+
+<script>
+const S = {
+  screen: 0,
+  cardChoice: null,
+  commitChoice: null,
+  silence: 'idle'
+};
+const TOTAL = 8;
+
+const CARDS = [
+  "Completed a physical challenge most people around me thought wasn't realistic for someone with my schedule.",
+  "Got through a period of my life on stubbornness alone — and didn't let the people depending on me down.",
+  "Built or learned something from scratch, late in life, that had nothing to do with my career."
+];
+
+const REFRAMES = [
+  "That is not a hobby. That is someone who found a way to do something that mattered inside a life that was already full. Precision under constraint. They just never called it that.",
+  "That required a decision made honestly, under real conditions, with real consequences. That is the mess tent conversation. They have been running it their whole life. They just never gave it a name.",
+  "That is someone who gave their engine what it needed when the easier choice was to stop. Quietly built. Without anyone at work knowing it was happening."
+];
+
+const COMMITS = [
+  "Sit down with my team this week and run the mess tent conversation on the project we've been avoiding.",
+  "Eight hours of sleep, for one week, as a real experiment.",
+  "Have the conversation with the person at home who's been carrying my absence quietly."
+];
+
+function go(n) {
+  S.screen = Math.max(0, Math.min(TOTAL - 1, n));
+  document.getElementById('app').innerHTML = screens[S.screen]();
+  window.scrollTo(0, 0);
+  document.getElementById('pf').style.width = Math.round((S.screen / (TOTAL - 1)) * 100) + '%';
+  if (S.screen === TOTAL - 1) animateFinal();
+}
+
+function arr(d) {
+  return d === 'r'
+    ? `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg>`
+    : `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 8H3M7 4L3 8l4 4"/></svg>`;
+}
+
+function nav(back, next, label, canNext) {
+  label = label || 'Continue';
+  canNext = canNext === undefined ? true : canNext;
+  return `<div class="nav">
+    ${back >= 0 ? `<button class="btn btn-ghost" onclick="go(${back})">${arr('l')} Back</button>` : '<span></span>'}
+    <button class="btn btn-primary" onclick="go(${next})" ${canNext ? '' : 'disabled'}>${label} ${arr('r')}</button>
+  </div>`;
+}
+
+// ── SCREEN 0 — Cover (full hero) ──────────────────────────────────────────
+function s0() {
+  return `<div class="screen active">
+    <div class="hero">
+      <svg class="hero-mountains" viewBox="0 0 1600 320" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 320 L0 200 L110 130 L200 165 L310 70 L420 130 L540 30 L650 100 L760 20 L880 95 L990 15 L1100 90 L1220 40 L1340 110 L1460 55 L1600 95 L1600 320Z" fill="#1A3A66" opacity="0.85"/>
+        <path d="M0 320 L0 250 L160 195 L290 225 L420 155 L550 200 L680 130 L800 175 L930 115 L1050 165 L1180 110 L1300 160 L1430 130 L1600 150 L1600 320Z" fill="#0D2548"/>
+      </svg>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Higher Ground</p>
+        <h1 class="hero-h1">The Ridgeline</h1>
+        <p class="hero-sub">On performance, clarity and the full version of who you are.<br>A 45-minute keynote for leadership teams, all-hands, and executive events.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="go(1)" style="font-size:15px;padding:13px 28px;">Begin the preview ${arr('r')}</button>
+        </div>
+        <p class="hero-meta">6 scenes · ~10 minutes · No sound required</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ── SCREEN 1 — Scene 1: The Provocation ───────────────────────────────────
+function s1() {
+  const ok = S.cardChoice !== null;
+  const cardsHtml = CARDS.map((c, i) => `
+    <button class="choice-card ${S.cardChoice === i ? 'selected' : ''}" onclick="S.cardChoice=${i};go(1)">
+      <span class="num">${String.fromCharCode(65+i)}</span>${c}
+    </button>`).join('');
+
+  return `<div class="screen active"><div class="inner">
+    <p class="eyebrow">Scene 1 — The Provocation</p>
+    <h2 class="display">Before we know<br>each other</h2>
+    <p class="context-note">This is a preview of The Ridgeline — a 45-minute keynote by Olivier Gil, senior executive, mountain athlete and high-altitude endurance coach. It works best if you participate as you go.</p>
+    <div>
+      <p class="spoken">"I want you to travel back for a moment. Not to last quarter. Not to your last performance review. Further."</p>
+      <div class="beat">3 seconds</div>
+      <p class="spoken">"I want you to find the ten year old version of you. The one who hadn't yet learned what was realistic. Who still had a list — maybe not written down, but <strong>felt</strong> — of things they were going to do."</p>
+      <div class="beat">pause</div>
+      <p class="spoken">"That child is still in this room. I promise you that."</p>
+      <div class="ridge"></div>
+      <p class="body-text">Think of one thing you've done — outside of any job title — that you're genuinely proud of. Something that cost you something real.</p>
+      <p class="choice-label">Choose the one closest to you</p>
+      <div class="choice-grid">${cardsHtml}</div>
+      <p class="body-text small" style="margin-top:0.75rem;">In the live keynote, participants write their own sentence, by hand, anonymously. Here, choose the one that resonates most — we'll come back to it.</p>
+    </div>
+    <div class="nav">
+      <span></span>
+      <button class="btn btn-primary" onclick="go(2)" ${ok ? '' : 'disabled'}>Continue ${arr('r')}</button>
+    </div>
+  </div></div>`;
+}
+
+// ── SCREEN 2 — Scene 2: The Mirror ────────────────────────────────────────
+function s2() {
+  return `<div class="screen active"><div class="inner">
+    <p class="eyebrow">Scene 2 — The Mirror</p>
+    <h2 class="display">Now —<br><em>who I am</em></h2>
+    <div style="margin-top:1.5rem;">
+      <p class="spoken">"I'm a senior executive in a cybersecurity company. I manage teams across multiple countries. I have the kind of job that fills every available space if you let it."</p>
+      <p class="spoken">"I'm a husband and a father. Which means everything else I'm about to tell you — I do while being responsible for people who need me <strong>present</strong>. Not performing. Present."</p>
+      <div class="beat">pause</div>
+      <p class="spoken">"I'm also a mountain athlete. An amateur — in the original sense. Someone who does it for love, not for a living. And I'm a coach — I coach mountain athletes preparing for serious objectives inside lives that are already full."</p>
+      <div class="mquote">
+        <p>"I used to keep these things in separate boxes. One day I stopped. Not because I had a revelation. Because I couldn't afford the cost anymore. The cost of pretending that the person who makes decisions in a boardroom and the person who makes decisions at altitude are <strong>different people.</strong>"</p>
+      </div>
+      <p class="spoken" style="color:var(--text-lt);font-size:1rem;">"They're not. And what I found when I stopped pretending is what the next 40 minutes are about."</p>
+    </div>
+    ${nav(1, 3)}
+  </div></div>`;
+}
+
+// ── SCREEN 3 — Scene 3: The Amateur Constraint ────────────────────────────
+function s3() {
+  return `<div class="screen active"><div class="inner">
+    <p class="eyebrow">Scene 3 — The Amateur Constraint</p>
+    <h2 class="display">Mont Blanc.<br><em>Solo. One day.</em></h2>
+    <div style="margin-top:1.5rem;">
+      <p class="body-text">Most people climb Mont Blanc over two or three days. A guide. Time. Hut stops. I did it in one day, solo, from the valley.</p>
+      <p class="spoken">"Not because I'm exceptional. Because I had no other option. Three constraints. All real. All non-negotiable."</p>
+      <p class="body-text small">A job with limited holidays. A family in Chamonix I wasn't going to abandon. A perfect weather window that opened for exactly 48 hours after we arrived.</p>
+      <p class="spoken">"I started at 9pm. Above me, a ceiling of stars so dense it looked solid. Below me, the lights of Chamonix still sleeping. I was somewhere between the two."</p>
+      <div class="ridge"></div>
+      <p class="body-text small">At 4,000 metres — six hours in — the gap between the plan and the reality was opening.</p>
+      <div class="checklist">
+        <div class="stat-row"><div class="stat-dot"></div><span class="stat-label">Weather</span><span class="stat-value">Green</span></div>
+        <div class="stat-row"><div class="stat-dot"></div><span class="stat-label">Time window</span><span class="stat-value">Green</span></div>
+        <div class="stat-row"><div class="stat-dot"></div><span class="stat-label">Safety margin</span><span class="stat-value">Present</span></div>
+        <div class="stat-row"><div class="stat-dot red"></div><span class="stat-label">How I felt</span><span class="stat-value" style="color:var(--red);">Red</span></div>
+      </div>
+      <div class="mquote"><p>"So I continued. And I thought about my wife and my daughter. Not as motivation. As an anchor. <strong>Something more real than the discomfort in front of me.</strong>"</p></div>
+      <p class="spoken">"The constraint didn't make it harder. It made it cleaner. It removed every option except the right one."</p>
+    </div>
+    ${nav(1, 4)}
+  </div></div>`;
+}
+
+// ── SCREEN 4 — Scene 4: The Mess Tent ─────────────────────────────────────
+function s4() {
+  return `<div class="screen active"><div class="inner">
+    <p class="eyebrow">Scene 4 — The Mess Tent · The Commitment Ritual</p>
+    <h2 class="display">Central Asia.<br><em>3,500 metres.<br>In t-shirts.</em></h2>
+    <div style="margin-top:1.5rem;">
+      <p class="body-text">A different mountain. A different country. Nine hours in a van on gravel tracks. Five days of acclimatisation rotations. The evening before a summit attempt.</p>
+      <p class="spoken">"Inside — the stove at full blast. We've taken our jackets off. Sitting in t-shirts, hands wrapped around cups of tea. At 3,500 metres in Central Asia."</p>
+      <div class="beat">relative to what is about to happen</div>
+      <p class="spoken">"You have the most important conversation of the expedition. Not about the route. Not about the gear. You talk about <strong>when to turn back.</strong>"</p>
+      <div class="mquote"><p>"No hierarchy in that conversation. None. But here is what it is really about — it is not about turning back. It is about <strong>committing to go forward.</strong> When every doubt has been named, the group becomes one thing. Everyone gives everything. Not because they were asked to. Because they chose to."</p></div>
+      <p class="spoken">"That is when we climb our best. That is when we all come back alive — tired, proud, <strong>bound together by something that only exists between people who chose it together.</strong>"</p>
+      <div class="ridge"></div>
+      <p class="spoken" style="font-size:1rem;color:var(--text-lt);">"When did your team last sit together — without hierarchy — and genuinely choose the path they're on? And is there someone whose voice hasn't fully been heard yet?"</p>
+    </div>
+    ${nav(3, 5)}
+  </div></div>`;
+}
+
+// ── SCREEN 5 — Scene 5: Kyrgyzstan + silence ──────────────────────────────
+function s5() {
+  const idle = S.silence === 'idle';
+  const inside = S.silence === 'inside';
+  const done = S.silence === 'done';
+
+  return `<div class="screen active"><div class="inner">
+    <p class="eyebrow">Scene 5 — The Personal Investment Question</p>
+    <h2 class="display">Kyrgyzstan.<br><em>6,100 metres.</em></h2>
+    <div style="margin-top:1.5rem;">
+      <p class="context-note">One year later. Central Asia again — a different range, a different objective.</p>
+      <p class="body-text">At 5,200 metres the night before summit day — I would start to fall asleep, and then wake up in panic. Because my body had forgotten to breathe.</p>
+      <p class="spoken">"You don't recover at that altitude. You accumulate. Everything slows — your pace, your thinking, your ability to process what is happening around you."</p>
+      <p class="body-text" style="margin-top:0.5rem;">I had a rope partner. A woman I had never met before arriving at base camp. A stranger. We built enough trust — through the mess tent conversation, through nine days together — that I put my life in her hands on steep terrain at 6,000 metres.</p>
+      <div class="beat">when I reached the summit</div>
+      <p class="spoken" style="font-size:1.4rem;border-left-width:3px;">"I cried."</p>
+      <div class="beat">5 seconds</div>
+      <div class="mquote"><p>"That child knew something about me I had spent years talking myself out of — that I was capable of more than the reasonable adult version of my life was allowing me to be. At 6,100 metres — <strong>I found out he was right.</strong>"</p></div>
+      <div class="ridge"></div>
+      <p class="spoken">"You are running on less than you think. And you have more than you know. Both true. At the same time. For almost everyone in this room."</p>
+      <div class="silence-box">
+        ${idle ? `
+          <p class="silence-cap">A mountain ritual</p>
+          <p class="silence-q">Before something that matters, we sit with one question:<br><br>"When did you last give yourself the conditions to find out what you're actually made of?"</p>
+          <button class="btn btn-ghost" onclick="S.silence='inside';go(5)">Enter the silence ${arr('r')}</button>
+        ` : inside ? `
+          <div class="silence-dot"></div>
+          <p class="silence-cap" style="margin-bottom:1rem;">Thirty seconds. Just you and the question.</p>
+          <p class="silence-q" style="font-size:0.9rem;color:var(--steel-lt);">No talking. No thinking about what comes next. Just the question, however long it takes.</p>
+          <button class="btn btn-ghost" onclick="S.silence='done';go(5)">I'm ready ${arr('r')}</button>
+        ` : `
+          <p class="silence-cap">The silence is complete</p>
+          <p class="silence-q">Hold whatever came up.<br>We'll come back to it.</p>
+        `}
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn btn-ghost" onclick="go(4)">${arr('l')} Back</button>
+      <button class="btn btn-primary" onclick="go(6)" ${done ? '' : 'disabled'}>Continue ${arr('r')}</button>
+    </div>
+  </div></div>`;
+}
+
+// ── SCREEN 6 — Scene 6: Closing Mirror ────────────────────────────────────
+function s6() {
+  const cardIdx = S.cardChoice ?? 0;
+  const card = CARDS[cardIdx];
+  const reframe = REFRAMES[cardIdx];
+  const ok = S.commitChoice !== null;
+  const commitsHtml = COMMITS.map((c, i) => `
+    <button class="choice-card ${S.commitChoice === i ? 'selected' : ''}" onclick="S.commitChoice=${i};go(6)">
+      <span class="num">${String.fromCharCode(65+i)}</span>${c}
+    </button>`).join('');
+
+  return `<div class="screen active"><div class="inner">
+    <p class="eyebrow">Scene 6 — The Closing Mirror</p>
+    <h2 class="display">What you<br><em>already are</em></h2>
+    <div style="margin-top:1.5rem;">
+      <p class="spoken">"Earlier — before we knew each other — you wrote something down. I want to show you what I see when I read these."</p>
+      <div class="reframe">
+        <p class="reframe-label">What you chose</p>
+        <p class="reframe-text" style="margin-bottom:1rem;color:var(--bg-3);">"${card}"</p>
+        <div style="height:1px;background:var(--ice-bdr);margin:0.75rem 0;"></div>
+        <p class="reframe-label">What I see</p>
+        <p class="reframe-text" style="color:var(--bg-3);">${reframe}</p>
+      </div>
+      <p class="body-text">You did something for each other today without knowing it. Every card read out loud gave someone in this room something they needed. That's what a rope team does.</p>
+      <div class="mquote"><p>"You have been leaving that person at the door every morning."</p></div>
+      <div class="ridge"></div>
+      <p class="spoken">"Now — the second card. One thing. Specific. Starting Monday. Not a goal. <strong>The first stone of the commitment.</strong>"</p>
+      <p class="choice-label">Choose the one closest to you</p>
+      <div class="choice-grid">${commitsHtml}</div>
+      <p class="body-text small" style="margin-top:0.5rem;">In the live keynote, participants write their own commitment, by hand, and put their name on it.</p>
+    </div>
+    <div class="nav">
+      <button class="btn btn-ghost" onclick="go(5)">${arr('l')} Back</button>
+      <button class="btn btn-primary" onclick="go(7)" ${ok ? '' : 'disabled'}>See the closing ${arr('r')}</button>
+    </div>
+  </div></div>`;
+}
+
+// ── SCREEN 7 — Closing + CTA ───────────────────────────────────────────────
+function s7() {
+  const commitment = COMMITS[S.commitChoice ?? 0];
+  const lines = [
+    `"I don't know if I'll summit Ama Dablam."`,
+    `"I might turn back at 5,000 metres because the criteria I set — warm, honest, clear — tell me it's time to come home."`,
+    `"And I've already decided — in the mess tent, before I've even left — that that is okay."`,
+    `"Because the summit was never the point."`,
+    `"What matters is arriving at the base of that mountain as the best version of myself I've ever been. The fittest. The clearest. The most present. And then — the mountain decides the rest."`,
+    `"There is a ten year old. The one with the list. The one who hadn't yet learned what was realistic."`,
+    `"I'm not ready to stop listening to him."`,
+    `"Neither, I suspect —"`,
+    `"are you."`
+  ];
+  const delay = lines.length * 0.33;
+
+  return `<div class="screen active"><div class="inner">
+    <p class="eyebrow">The Ridgeline — Closing</p>
+    <div id="fl" style="margin:1.25rem 0 2rem;">
+      ${lines.map((l, i) => `<p class="final-line" style="transition-delay:${i * 0.33}s;">${l}</p>`).join('')}
+    </div>
+    <div class="commitment-display" style="opacity:0;transition:opacity 1s ease ${delay + 0.3}s;" id="cmt">
+      <p style="font-family:var(--afacad);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber-dim);margin-bottom:0.4rem;">A Monday commitment</p>
+      <p>${commitment}</p>
+    </div>
+    <div style="opacity:0;transition:opacity 0.8s ease ${delay + 1.1}s;" id="ctaw">
+      <div class="ridge" style="margin-top:2rem;"></div>
+      <p style="font-family:var(--afacad);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:1.25rem;">For organisations &amp; event teams</p>
+      <div class="cta-row">
+        <p class="cta-tag">The keynote — 45 minutes</p>
+        <p>Delivered to your organisation, leadership summit, or all-hands. Prepared in dialogue with you for your specific audience and moment.</p>
+        <a href="/enquire" class="btn btn-primary">Enquire about The Ridgeline ${arr('r')}</a>
+      </div>
+      <div class="cta-row">
+        <p class="cta-tag">Optional add-on — 20-minute interview</p>
+        <p>Immediately following the keynote. A structured conversation prepared around your company's specific challenges, facilitated by a moderator from your team.</p>
+      </div>
+      <div class="cta-row">
+        <p class="cta-tag">Optional add-on — Follow-up session</p>
+        <p>The mess tent conversation, run live with your leadership team — on a real project you're currently navigating. Two to three hours. Facilitated by Olivier.</p>
+      </div>
+
+      <div class="ridge"></div>
+      <p style="font-family:var(--afacad);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:1.25rem;">For speaker bureaus &amp; event agencies</p>
+      <div class="speaker-brief">
+        <div class="brief-row"><span class="brief-key">Speaker</span><span class="brief-val">Olivier Gil</span></div>
+        <div class="brief-row"><span class="brief-key">Format</span><span class="brief-val">45-min keynote + optional add-ons</span></div>
+        <div class="brief-row"><span class="brief-key">Languages</span><span class="brief-val">English · French</span></div>
+        <div class="brief-row"><span class="brief-key">Differentiator</span><span class="brief-val">Active C-suite with live Himalayan objective</span></div>
+        <div class="brief-row"><span class="brief-key">Best fit</span><span class="brief-val">Leadership · Transformation · L&amp;D · All-hands</span></div>
+      </div>
+      <div class="cta-row">
+        <p class="cta-tag">Get in touch</p>
+        <p>A genuinely unique corporate keynote. An active C-suite executive preparing for a serious Himalayan objective — a live story in progress, not a retrospective.</p>
+        <a href="mailto:olivier@higherground.training" class="btn btn-primary">olivier@higherground.training ${arr('r')}</a>
+      </div>
+
+      <div style="text-align:center;margin-top:1.5rem;">
+        <button class="btn btn-ghost" onclick="go(0)" style="font-size:12px;">Start again</button>
+      </div>
+    </div>
+  </div></div>`;
+}
+
+const screens = [s0, s1, s2, s3, s4, s5, s6, s7];
+
+function animateFinal() {
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.final-line').forEach(el => {
+      requestAnimationFrame(() => el.classList.add('visible'));
+    });
+    setTimeout(() => {
+      ['cmt', 'ctaw'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.opacity = '1';
+      });
+    }, 50);
+  });
+}
+
+document.getElementById('app').innerHTML = screens[0]();
+window.go = go;
+</script>
+</body>
+</html>
