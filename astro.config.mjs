@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   // Set this to the final production domain once the .fr migration happens.
-  site: 'https://www.higherground.fr',
+  site: 'https://higher-ground.fr',
 
   i18n: {
     // English is the default/source locale; French is the second.
