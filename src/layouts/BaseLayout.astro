@@ -57,6 +57,20 @@ const frTarget = FR_PAGES.has(key) ? frHref : '/fr/';
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname;
 const ogImage = Astro.site ? new URL('/og-default.jpg', Astro.site).href : '/og-default.jpg';
 const fullTitle = `${title} — Higher Ground`;
+
+// Organization structured data (helps Google associate the brand + logo).
+const siteUrl = Astro.site ? Astro.site.href : 'https://higher-ground.fr/';
+const orgSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Higher Ground',
+  url: siteUrl,
+  logo: Astro.site ? new URL('/favicon-512.png', Astro.site).href : '/favicon-512.png',
+  sameAs: [
+    'https://www.instagram.com/olivier.higherground/',
+    'https://www.linkedin.com/in/olivier-gil',
+  ],
+});
 ---
 
 <!doctype html>
@@ -67,7 +81,11 @@ const fullTitle = `${title} — Higher Ground`;
     <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Higher Ground" />
     <meta property="og:title" content={fullTitle} />
@@ -79,42 +97,51 @@ const fullTitle = `${title} — Higher Ground`;
     <meta name="twitter:title" content={fullTitle} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" is:inline set:html={orgSchema} />
+    <!-- Google tag (gtag.js) -->
+    <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-PJKGED6CEB"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PJKGED6CEB');
+    </script>
   </head>
   <body>
     <nav class="nav">
       <div class="nav-in">
-        <a href={prefix || '/'} class="logo">
+        <a href={prefix ? `${prefix}/` : '/'} class="logo">
           <Image src={logoNavy} alt="Higher Ground" class="logo-img" width={215} densities={[1, 2, 3]} />
         </a>
         <div class="nav-links">
-          <a href={`${prefix}/performance-lab`}>{t.performanceLab}</a>
-          <a href={`${prefix}/leadership`}>{t.leadership}</a>
-          <a href={`${prefix}/method`}>{t.method}</a>
-          <a href={`${prefix}/journal`}>{t.journal}</a>
-          <a href={`${prefix}/about`}>{t.about}</a>
+          <a href={`${prefix}/performance-lab/`}>{t.performanceLab}</a>
+          <a href={`${prefix}/leadership/`}>{t.leadership}</a>
+          <a href={`${prefix}/method/`}>{t.method}</a>
+          <a href={`${prefix}/journal/`}>{t.journal}</a>
+          <a href={`${prefix}/about/`}>{t.about}</a>
           <span class="lang-switch" aria-label="Language">
             <a href={enHref} class={lang === 'en' ? 'active' : ''} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
             <span class="sep">/</span>
             <a href={frTarget} class={lang === 'fr' ? 'active' : ''} aria-current={lang === 'fr' ? 'true' : undefined}>FR</a>
           </span>
-          <a href={`${prefix}/enquire`} class="nav-cta">{t.enquire}</a>
+          <a href={`${prefix}/enquire/`} class="nav-cta">{t.enquire}</a>
         </div>
         <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
           <span></span><span></span><span></span>
         </button>
       </div>
       <div class="nav-mobile" id="nav-mobile">
-        <a href={`${prefix}/performance-lab`}>{t.performanceLab}</a>
-        <a href={`${prefix}/leadership`}>{t.leadership}</a>
-        <a href={`${prefix}/method`}>{t.method}</a>
-        <a href={`${prefix}/journal`}>{t.journal}</a>
-        <a href={`${prefix}/about`}>{t.about}</a>
+        <a href={`${prefix}/performance-lab/`}>{t.performanceLab}</a>
+        <a href={`${prefix}/leadership/`}>{t.leadership}</a>
+        <a href={`${prefix}/method/`}>{t.method}</a>
+        <a href={`${prefix}/journal/`}>{t.journal}</a>
+        <a href={`${prefix}/about/`}>{t.about}</a>
         <span class="lang-switch lang-switch-mobile" aria-label="Language">
           <a href={enHref} class={lang === 'en' ? 'active' : ''} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
           <span class="sep">/</span>
           <a href={frTarget} class={lang === 'fr' ? 'active' : ''} aria-current={lang === 'fr' ? 'true' : undefined}>FR</a>
         </span>
-        <a href={`${prefix}/enquire`} class="nav-cta">{t.enquire}</a>
+        <a href={`${prefix}/enquire/`} class="nav-cta">{t.enquire}</a>
       </div>
     </nav>
 
@@ -133,7 +160,7 @@ const fullTitle = `${title} — Higher Ground`;
           </svg>
           <span>@olivier.higherground</span>
         </a>
-        <span class="foot-copy">© 2026 Higher Ground · <a href="/privacy">{lang === 'fr' ? 'Confidentialité' : 'Privacy'}</a></span>
+        <span class="foot-copy">© 2026 Higher Ground · <a href="/privacy/">{lang === 'fr' ? 'Confidentialité' : 'Privacy'}</a></span>
       </div>
     </footer>
 
